@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title></title>
+		<link rel="stylesheet" type="text/css" media="screen" href="_styles/screen.css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript">
+		      function draw(){
+
+		          var ctx = document.getElementById('contentCanvas').getContext('2d');
+		
+					var img = new Image();
+					
+					img.onload = function(){
+						ctx.drawImage(img, 0, 0);
+				        ctx.fillStyle = "#F7B72D";
+				        ctx.fillRect(15,15,70,70);
+				  }
+				  img.src = '_images/sun-burst.jpg';
+				  
+
+		          // draw rectangle
+
+ 					
+		
+
+		          // set composite property
+		          ctx.globalCompositeOperation = "lighter";
+		        
+		      }
+		
+			$(document).ready(function(){
+			  draw();
+			});
+			
+		    </script>
+		    <style type="text/css">
+		      canvas { border: 2px solid #000; margin-bottom: 5px; }
+		    </style>
+		
+
+	</head>
+	<body>
+		
+		<div id="container">
+		
+		<header>
+			<h1>Heading goes here.</h1>
+		</header>
+		
+		<div id="contentContainer">
+		
+			<div id="section">
+				<section>	
+				<h2>Intro text goes here.</h2>
+
+				<div class="col1">
+					<p>Content goes here.</p>
+				</div>
+
+				<div class="col2">
+					<p>More content goes here.</p>
+				</div>
+			</section>
+			</div>
+		
+		</div>
+
+		<div id="navContainer">
+			
+			<div id="nav">
+				
+				<nav>
+					<ul id="mainNavigation">
+						<li><a href="">Our<br/>approach</a></li>
+						<li><a href="">Case<br/>studies</a></li>
+						<li><a href="">Products<br/>&amp; services</a></li>
+						<li><a href="">Meet<br/>the team</a></li>
+						<li><a href="">Contact<br/>&amp; find us</a></li>
+					</ul>
+				</nav>
+				
+			</div>
+			
+		</div>
+		
+		<div id="supplementary">
+			<img id="logo" alt="BLISS *" src="_images/logo-yellow.png" />
+			
+			
+				<nav>
+					<ul id="contactLinks">
+						<li><a href="">Email</a></li>
+						<li><a href="">Blog</a></li>
+						<li><a href="">Twitter</a></li>
+						<li><a href="">LinkedIn</a></li>
+					</ul>
+				</nav>
+
+				<div id="supplementaryContent">
+						<h4>Heading goes here.</h4>
+						<p>Content goes here.</p>
+				</div>
+					
+		
+
+		</div>
+		<canvas id="contentCanvas">
+		<!--<img id="background" alt="" src="_images/sun-burst.jpg" />-->
+		</canvas>
+	</div>
+	
+	</body>
+  
+</html>
