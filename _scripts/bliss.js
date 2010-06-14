@@ -8,8 +8,8 @@ $(document).ready(function() {
 	// if hash exists, load content
 	function checkHash() { 
         var href = $(this).attr('href');
-        if (hash == href.substr(0, href.length - 5)) {
-			toLoad = hash + '.html';
+        if (hash == href.substr(0, href.length)) {
+			toLoad = '/' + hash + '/';
 			navChange(toLoad);
 	        //bgcolour = $(this).attr('class');
 	        $('#section').animate({
@@ -32,7 +32,7 @@ $(document).ready(function() {
 		$("#mainNavigation a").each(function(index) {
 			// remove bg colour from all nav
 			$(this).parent().css('background-color', 'transparent');
-			if ($(this).attr('href')==destination) {
+				if ($(this).attr('href')==destination) {
 				$navItem = $(this);
 			}
 		});
@@ -51,23 +51,23 @@ $(document).ready(function() {
 		$(this).parent().removeClass().addClass(bgcolour);
 		
 		//load content
-        var $page = $('<div />').load(toLoad + ' #contentContainer,h1,.background,#supplementaryContent,#featureContainer', '',
+        var $page = $('<div />').load(toLoad + ' #contentContainer,h1,.bgimage,#supplementaryContent,#featureContainer', '',
         function() { 
         	bgcolour = $("#contentContainer", $page).attr('class');
             var $content = $("#section", $page).contents();
             var $supplementary = $("#supplementaryContent", $page).contents();
             var $heading = $page.find('h1').contents();
-            var $backgroundSrc = $page.find('#background').attr('src');
+            var $backgroundSrc = $page.find('.bgimage').attr('src');
 			var $features = $page.find('#featureContainer').contents();
 
             // load background image
             var img = new Image();
             $(img).load(function() {
                 $(this).hide();
-                $('#background').after(this);
+                $('.bgimage').after(this);
                 $(this).fadeIn('1000',
                 function() {
-                    $('#background').remove();
+                    $('.bgimage').remove();
                     $(this).attr('id', 'background');
                 });
             }
@@ -121,7 +121,7 @@ $(document).ready(function() {
 	        //$('#load').remove();
 	        //$('#wrapper').append('<span id="load">LOADING...</span>');
 	        //$('#load').fadeIn('normal');
-	        window.location.hash = $(this).attr('href').substr(0, $(this).attr('href').length - 5);
+	        window.location.hash = $(this).attr('href').substr(0, $(this).attr('href').length);
 
 	        // change nav colour
 	        navChange($(this).attr('href'));
