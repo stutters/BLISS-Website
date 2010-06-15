@@ -28,12 +28,14 @@ $(document).ready(function() {
 	$('#mainNavigation li a').each(checkHash);
 
 	function navChange(destination) {
-		
+	
+		var $destination = destination.slice(0,(destination.indexOf('/',1)+1));
+			
 		var $navItem;
 		$("#mainNavigation a").each(function(index) {
 			// remove bg colour from all nav
 			$(this).parent().css('background-color', 'transparent');
-			if ($(this).attr('href')==destination) {
+			if ($(this).attr('href')==$destination) {
 				$navItem = $(this);
 			}
 		});
@@ -91,7 +93,7 @@ $(document).ready(function() {
 
 	function showNewContent() {
 		// activate links
-		$('a.page').click(activateLinks);
+		$('a.page').click(activateLinks);	
 		// animate content to show
 		$("#contentContainer").animateToClass(bgcolour, 500, function() {$("#contentContainer").removeClass().addClass(bgcolour);});
 		$("#iconBg").animateToClass(bgcolour, 500);
@@ -116,10 +118,12 @@ $(document).ready(function() {
 				 height: 'toggle'
 			 },
 			 500, 'swing', loadContent);
-			 $('h1').fadeOut();
-			 			  
+			 $('h1').fadeOut();	  
 			 $('#supplementaryContent').fadeOut();
-			$('#featureContainer').fadeOut();
+			 $('#featureContainer').fadeOut();
+			 if($(this).is('.caseStudy')) {
+			 	activateCaseStudy();
+			 }
 			 //$('#load').remove();
 			 //$('#wrapper').append('<span id="load">LOADING...</span>');
 			 //$('#load').fadeIn('normal');
@@ -130,6 +134,11 @@ $(document).ready(function() {
 
 			 return false;
 
+	}
+	
+	function activateCaseStudy() {
+		$('#supplementary').fadeOut();
+		$("#contentContainer").animate({'marginTop':'+=128px'}, 1000);
 	}
 
 	// add main nav function
