@@ -62,7 +62,6 @@ body {
 
 div#navContainer {
 	width: 685px;	
-	padding-right: 274px;
 	position: absolute;
 	left: 50%;
 	top: 0px;
@@ -178,22 +177,9 @@ h4 {
 	background-color:#fff;
 }
 
-#supplementary {
-	height: auto;
-	bottom: 0;
-	background-image:  url(../_images/white-bg.png);
-	background-position: 137px 0;
-	margin-top: 137px;
-	top: 9px;
-	left:  50%;
-	width: 265px;	
-	position: absolute;
-	margin-left: 214px;
-}
-
-
 #logo {
 	margin-top: -137px;
+	margin-left:  694px;
 	float: left;
 }
 #iconBg {
@@ -201,9 +187,8 @@ h4 {
 	height: 100px;
 	background-color: #FFF;
 	position: absolute;
-	top: -137px;
 	z-index: -1;
-	left: 150px;
+	left: 800px;
 }
 
 ul#contactLinks {
@@ -223,11 +208,17 @@ ul#contactLinks li a:hover {
 	color: #000;
 }
 
-#supplementaryContent {
+#supplementaryContainer {
+	height: 100%;
+	background-color: #fff;
+	width: 265px;
+}
+
+#supplementary {
 	margin-left: 9px;
 	margin-top: 9px;
 }
-#supplementaryContent a {
+#supplementary a {
 	color: #000;
 	font-weight: 600;
 	background-image: url(../_images/small-bullet.png);
@@ -235,7 +226,7 @@ ul#contactLinks li a:hover {
 	background-position: center left;
 	padding-left: 18px;
 }
-#supplementaryContent li {
+#supplementary li {
 	margin: 9px 0;
 	text-transform: capitalize;
 }
