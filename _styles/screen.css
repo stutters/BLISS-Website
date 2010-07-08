@@ -25,7 +25,7 @@ body {
 }
 
 #contentContainer {
-	margin-top: 275px;
+	margin-top: 266px;
 	padding: 9px 0;
 }
 
@@ -142,10 +142,11 @@ h3 {
 }
 
 h4 {
-	font-weight: 700;
+	font-weight: 600;
 	font-size: 18px;
 	text-transform: uppercase;
 	background-color: transparent !important;
+	color: #000;
 }
 
 #feature1, #feature2 {
@@ -209,9 +210,13 @@ ul#contactLinks li a:hover {
 }
 
 #supplementaryContainer {
-	height: 100%;
 	background-color: #fff;
+	background-color: rgba(255,255,255,0.25);
 	width: 265px;
+	left: 50%;
+	margin-left: 214px;
+	position: absolute;
+	top: 275px;
 }
 
 #supplementary {

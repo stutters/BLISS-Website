@@ -17,7 +17,7 @@ $(document).ready(function() {
 			 },
 			 500, 'swing', loadContent);
 			 $('h1').fadeOut();
-			 $('#supplementaryContent').fadeOut();
+			 $('#supplementary').fadeOut();
 			$('#featureContainer').fadeOut();
 		}
 
@@ -53,11 +53,11 @@ $(document).ready(function() {
 		//$(this).parent().removeClass().addClass(bgcolour);
 		
 		//load content
-		var $page = $('<div />').load(toLoad + ' #contentContainer,h1,.bgimage,#supplementaryContent,#featureContainer', '',
+		var $page = $('<div />').load(toLoad + ' #contentContainer,h1,.bgimage,#supplementary,#featureContainer', '',
 		function() { 
 			bgcolour = $("#contentContainer", $page).attr('class');
 			var $content = $("#section", $page).contents();
-			var $supplementary = $("#supplementaryContent", $page).contents();
+			var $supplementary = $("#supplementary", $page).contents();
 			var $heading = $page.find('h1').contents();
 			var $backgroundSrc = $page.find('.bgimage').attr('src');
 			var $features = $page.find('#featureContainer').contents();
@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 			// insert content and heading
 			$('#section').empty().append($content);
-			$('#supplementaryContent').empty().append($supplementary);
+			$('#supplementary').empty().append($supplementary);
 			$('#featureContainer').empty().append($features);
 			$('h1').empty().append($heading);
 			// transform links and show content
@@ -84,13 +84,13 @@ $(document).ready(function() {
 		// animate content to show
 		$("#contentContainer").animateToClass(bgcolour, 500, function() {$("#contentContainer").removeClass().addClass(bgcolour);});
 		$("#iconBg").animateToClass(bgcolour, 500);
-		$("h4").animateToClass(bgcolour, 500);
+		//$("h4").animateToClass(bgcolour, 500);
 		$('#section').animate({
 			height: 'toggle'
 		},
 		500, 'swing', hideLoader);
 		$('h1').fadeIn();
-		$('#supplementaryContent').fadeIn();
+		$('#supplementary').fadeIn();
 		$('#featureContainer').fadeIn();
 	}
 	function hideLoader() {
@@ -106,7 +106,7 @@ $(document).ready(function() {
 			 },
 			 500, 'swing', loadContent);
 			 $('h1').fadeOut();	  
-			 $('#supplementaryContent').fadeOut();
+			 $('#supplementary').fadeOut();
 			 $('#featureContainer').fadeOut();
 
 			 //$('#load').remove();
