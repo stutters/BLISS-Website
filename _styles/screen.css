@@ -358,6 +358,10 @@ div.thumb {
 	float: left;
 }
 
+.caseStudyHover {
+	opacity:0.25;
+}
+
 
 /* background image */
 

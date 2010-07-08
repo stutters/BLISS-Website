@@ -4,15 +4,14 @@ $(document).ready(function() {
 	var toLoad;
 	var bgcolour;
 	var hash = window.location.hash.substr(1);
+	var caseStudy = false;
 
 	// if hash exists, load content
 	function checkHash() { 
-		var href = $(this).attr('href');
+		var href = $(this).attr('href');	
 		if (hash == href.substr(0, href.length)) {
-			//toLoad = hash.replace(/\//g,'');
 			toLoad = hash;
 			navChange(toLoad);
-			 //bgcolour = $(this).attr('class');
 			 $('#section').animate({
 				 height: 'toggle'
 			 },
@@ -64,20 +63,7 @@ $(document).ready(function() {
 			var $features = $page.find('#featureContainer').contents();
 
 			// load background image
-			var img = new Image();
-			$(img).load(function() {
-				//$(this).hide().addClass('bgimage');
-				$('#background	').after(this);
-				$(this).fadeIn(1000,
-				function() {
-					$('#background').remove();
-					$(this).attr('id', 'background');
-				});
-			}
-			).hide(
-			).addClass('bgimage'
-			).attr('src', $backgroundSrc
-			);
+			changeBGImage($backgroundSrc);
 
 			// insert content and heading
 			$('#section').empty().append($content);
@@ -93,7 +79,8 @@ $(document).ready(function() {
 
 	function showNewContent() {
 		// activate links
-		$('a.page').click(activateLinks);	
+		$('a.page').click(activateLinks);
+		$('a.caseStudy').click(activateCaseStudy);
 		// animate content to show
 		$("#contentContainer").animateToClass(bgcolour, 500, function() {$("#contentContainer").removeClass().addClass(bgcolour);});
 		$("#iconBg").animateToClass(bgcolour, 500);
@@ -121,9 +108,7 @@ $(document).ready(function() {
 			 $('h1').fadeOut();	  
 			 $('#supplementaryContent').fadeOut();
 			 $('#featureContainer').fadeOut();
-			 if($(this).is('.caseStudy')) {
-			 	activateCaseStudy();
-			 }
+
 			 //$('#load').remove();
 			 //$('#wrapper').append('<span id="load">LOADING...</span>');
 			 //$('#load').fadeIn('normal');
@@ -137,13 +122,49 @@ $(document).ready(function() {
 	}
 	
 	function activateCaseStudy() {
-		$('#supplementary').fadeOut();
-		$("#contentContainer").animate({'marginTop':'+=128px'}, 1000);
+		if(!caseStudy) {
+			var contentShift = $(window).height() - $('#contentContainer').height() - $('#featureContainer').height() - 27;
+			$('#navContainer').fadeOut();
+			$('#supplementary').fadeOut();
+			$("#contentContainer").animate({'marginTop':contentShift}, 1000).animate({'opacity':'0.25'},500).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.25');});
+			$("#featureContainer div").animate({'opacity':'0.25'},500).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.25');});
+		}
+		changeBGImage($(this).attr('href'));
+		
+		return false;
 	}
+	
+	function changeOpacity(thisObject,thisOpacity) {
+		$(thisObject).animate({'opacity':thisOpacity},500);
+	}
+	
+	function changeBGImage(imageSrc) {
+	
+			var img = new Image();
+			$(img).load(function() {
+				$('#background').after(this);
+				$(this).fadeIn(1000,
+				function() {
+					$('#background').remove();
+					$(this).attr('id', 'background');
+				});
+			}
+			).hide(
+			).addClass('bgimage'
+			).attr('src', imageSrc
+			);
+	}
+	
+	// INIT
 
 	// add main nav function
 	$('#mainNavigation li a').click(activateLinks);
 	$('a.page').click(activateLinks);
+	
+	// set initial nav item
+	if(hash=="") {
+		navChange(window.location.pathname);
+	}
 
 
 	// set up tooltips
