@@ -2,23 +2,23 @@ $(document).ready(function() {
 
 	var $currentNavItem = false;
 	var toLoad;
-	var bgcolour;
+	var bgcolour = "yellow";
+	var textColour = "white";
 	var hash = window.location.hash.substr(1);
+	var caseStudy = false;
 
 	// if hash exists, load content
 	function checkHash() { 
-		var href = $(this).attr('href');
+		var href = $(this).attr('href');	
 		if (hash == href.substr(0, href.length)) {
-			//toLoad = hash.replace(/\//g,'');
 			toLoad = hash;
 			navChange(toLoad);
-			 //bgcolour = $(this).attr('class');
 			 $('#section').animate({
 				 height: 'toggle'
 			 },
 			 500, 'swing', loadContent);
 			 $('h1').fadeOut();
-			 $('#supplementaryContent').fadeOut();
+			 $('#supplementary').fadeOut();
 			$('#featureContainer').fadeOut();
 		}
 
@@ -54,34 +54,23 @@ $(document).ready(function() {
 		//$(this).parent().removeClass().addClass(bgcolour);
 		
 		//load content
-		var $page = $('<div />').load(toLoad + ' #contentContainer,h1,.bgimage,#supplementaryContent,#featureContainer', '',
+		var $page = $('<div />').load(toLoad + '#container,#bg', '',
 		function() { 
 			bgcolour = $("#contentContainer", $page).attr('class');
 			var $content = $("#section", $page).contents();
-			var $supplementary = $("#supplementaryContent", $page).contents();
+			var $supplementary = $("#supplementary", $page).contents();
 			var $heading = $page.find('h1').contents();
 			var $backgroundSrc = $page.find('.bgimage').attr('src');
 			var $features = $page.find('#featureContainer').contents();
+			textColour = $page.find('h1').attr('class');
+			if (textColour=="") {textColour="white";}
 
 			// load background image
-			var img = new Image();
-			$(img).load(function() {
-				//$(this).hide().addClass('bgimage');
-				$('#background	').after(this);
-				$(this).fadeIn(1000,
-				function() {
-					$('#background').remove();
-					$(this).attr('id', 'background');
-				});
-			}
-			).hide(
-			).addClass('bgimage'
-			).attr('src', $backgroundSrc
-			);
+			changeBGImage($backgroundSrc);
 
 			// insert content and heading
 			$('#section').empty().append($content);
-			$('#supplementaryContent').empty().append($supplementary);
+			$('#supplementary').empty().append($supplementary);
 			$('#featureContainer').empty().append($features);
 			$('h1').empty().append($heading);
 			// transform links and show content
@@ -93,17 +82,22 @@ $(document).ready(function() {
 
 	function showNewContent() {
 		// activate links
-		$('a.page').click(activateLinks);	
+		initLinks();
+		/*$('a.page').click(activateLinks);
+		$('a.caseStudy').click(activateCaseStudy);
+		initFeatures('0.5');*/
 		// animate content to show
 		$("#contentContainer").animateToClass(bgcolour, 500, function() {$("#contentContainer").removeClass().addClass(bgcolour);});
 		$("#iconBg").animateToClass(bgcolour, 500);
-		$("h4").animateToClass(bgcolour, 500);
+		$("h1").css({ color: textColour });
+		$("ul#mainNavigation li a").animate({ color: textColour }, 'fast');
+		$("#viewImage").animate({ color: textColour }, 'fast');
 		$('#section').animate({
 			height: 'toggle'
 		},
 		500, 'swing', hideLoader);
 		$('h1').fadeIn();
-		$('#supplementaryContent').fadeIn();
+		$('#supplementary').fadeIn();
 		$('#featureContainer').fadeIn();
 	}
 	function hideLoader() {
@@ -119,11 +113,9 @@ $(document).ready(function() {
 			 },
 			 500, 'swing', loadContent);
 			 $('h1').fadeOut();	  
-			 $('#supplementaryContent').fadeOut();
+			 $('#supplementary').fadeOut();
 			 $('#featureContainer').fadeOut();
-			 if($(this).is('.caseStudy')) {
-			 	activateCaseStudy();
-			 }
+
 			 //$('#load').remove();
 			 //$('#wrapper').append('<span id="load">LOADING...</span>');
 			 //$('#load').fadeIn('normal');
@@ -137,17 +129,80 @@ $(document).ready(function() {
 	}
 	
 	function activateCaseStudy() {
-		$('#supplementary').fadeOut();
-		$("#contentContainer").animate({'marginTop':'+=128px'}, 1000);
-	}
 
-	// add main nav function
+		showBG();
+		changeBGImage($(this).attr('href'));
+		
+		return false;
+	}
+	
+	function showBG() {
+	
+		if(!caseStudy) {
+			var contentShift = $(window).height() - $('#contentContainer').height() - $('#featureContainer').height() - 27;
+			$('#navContainer').fadeOut();
+			$('#supplementary').fadeOut();
+			$("#contentContainer").animate({'marginTop':contentShift}).animate({'opacity':'0.15'}).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.15');});
+			initFeatures('0.15');
+			$('#viewImage').text('View Content').unbind('click',showBG).click(hideBG);
+		}
+	
+	}
+	
+	function hideBG() {
+		$('#navContainer').fadeIn();
+		$('#supplementary').fadeIn();
+		$("#contentContainer").animate({'marginTop':'265px'}).animate({'opacity':'1'}).unbind('mouseenter').unbind('mouseleave');
+		$('#viewImage').text('View Image').unbind('click',hideBG).click(showBG);
+	}
+	
+	function initFeatures(thisOpacity) {
+		$("#featureContainer div").animate({'opacity':thisOpacity},500).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),thisOpacity);});
+	}
+	
+	function changeOpacity(thisObject,thisOpacity) {
+		$(thisObject).animate({'opacity':thisOpacity},500);
+	}
+	
+	function changeBGImage(imageSrc) {
+	
+			var img = new Image();
+			$(img).load(function() {
+				$('#background').after(this);
+				$(this).fadeIn(1000,
+				function() {
+					$('#background').remove();
+					$(this).attr('id', 'background');
+				});
+			}
+			).hide(
+			).addClass('bgimage'
+			).attr('src', imageSrc
+			);
+	}
+	
+	function initLinks() {
+		// add main nav function
+		$('a.page').click(activateLinks);
+		$('a.showBG').click(showBG);
+		initFeatures('0.15');
+	}
+	
+	// INIT
 	$('#mainNavigation li a').click(activateLinks);
-	$('a.page').click(activateLinks);
+	initLinks();
+	
+	// set initial nav item
+	if(hash=="") {
+		navChange(window.location.pathname);
+	}
+	
+	// create view image button
+	$('#viewImage').text('View Image').click(showBG);
 
 
 	// set up tooltips
-	$("#contactLinks a").each(
+	/*$("#contactLinks a").each(
 
 	function(index) {
 		$(this).tooltip(
@@ -161,7 +216,7 @@ $(document).ready(function() {
 
 	}
 
-	);
+	);*/
 
 
 });
