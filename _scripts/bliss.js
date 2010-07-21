@@ -83,10 +83,8 @@ $(document).ready(function() {
 	function showNewContent() {
 		// activate links
 		initLinks();
-		/*$('a.page').click(activateLinks);
-		$('a.caseStudy').click(activateCaseStudy);
-		initFeatures('0.5');*/
 		// animate content to show
+		document.title = $("h1").text().replace('.','') + " - BLISS";
 		$("#contentContainer").animateToClass(bgcolour, 500, function() {$("#contentContainer").removeClass().addClass(bgcolour);});
 		$("#iconBg").animateToClass(bgcolour, 500);
 		$("h1").css({ color: textColour });
