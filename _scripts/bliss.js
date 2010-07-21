@@ -138,7 +138,7 @@ $(document).ready(function() {
 	
 		if(!caseStudy) {
 			var contentShift = $(window).height() - $('#contentContainer').height() - $('#featureContainer').height() - 27;
-			$('#navContainer').fadeOut();
+			$('#navContainer').animate({'marginTop':'-137px'});
 			$('#supplementary').fadeOut();
 			$("#contentContainer").animate({'marginTop':contentShift}).animate({'opacity':'0.15'}).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.15');});
 			initFeatures('0.15');
@@ -148,7 +148,8 @@ $(document).ready(function() {
 	}
 	
 	function hideBG() {
-		$('#navContainer').fadeIn();
+
+		$('#navContainer').animate({'marginTop':'0px'});
 		$('#supplementary').fadeIn();
 		$("#contentContainer").animate({'marginTop':'265px'}).animate({'opacity':'1'}).unbind('mouseenter').unbind('mouseleave');
 		$('#viewImage').text('View Image').unbind('click',hideBG).click(showBG);
@@ -198,24 +199,6 @@ $(document).ready(function() {
 	
 	// create view image button
 	$('#viewImage').text('View Image').click(showBG);
-
-
-	// set up tooltips
-	/*$("#contactLinks a").each(
-
-	function(index) {
-		$(this).tooltip(
-		{
-			tip: '#' + $(this).attr('id') + 'Tooltip',
-			effect: 'slide',
-			direction: 'right',
-			position: 'bottom left',
-			offset: [ - 26, -9]
-		});
-
-	}
-
-	);*/
 
 
 });
