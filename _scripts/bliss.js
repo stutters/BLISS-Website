@@ -6,6 +6,8 @@ $(document).ready(function() {
 	var textColour = "white";
 	var hash = window.location.hash.substr(1);
 	var caseStudy = false;
+	var isContact = false;
+	var mapCheck = false;
 
 	// if hash exists, load content
 	function checkHash() { 
@@ -60,13 +62,26 @@ $(document).ready(function() {
 			var $content = $("#section", $page).contents();
 			var $supplementary = $("#supplementary", $page).contents();
 			var $heading = $page.find('h1').contents();
-			var $backgroundSrc = $page.find('.bgimage').attr('src');
 			var $features = $page.find('#featureContainer').contents();
 			textColour = $page.find('h1').attr('class');
 			if (textColour=="") {textColour="white";}
 
 			// load background image
-			changeBGImage($backgroundSrc);
+			if(!isContact && !mapCheck) {
+				var $backgroundSrc = $page.find('.bgimage').attr('src');
+				changeBGImage($backgroundSrc);
+			}
+			else if (isContact) {
+				// leaving contact page
+				var $mapSrc = $("#map", $page).attr('src');
+				showMap($mapSrc);
+			}
+			else {
+				// arriving at contact page
+				var $backgroundSrc = $page.find('.bgimage').attr('src');
+				// hide map
+				
+			}
 
 			// insert content and heading
 			$('#section').empty().append($content);
@@ -105,6 +120,10 @@ $(document).ready(function() {
 	function activateLinks() {
 
 			 toLoad = $(this).attr('href');
+			 
+			 if(toLoad=="/contact-and-find-us/") {
+			 	isContact=true;
+			 }
 			 
 			 $('#section').animate({
 				 height: 'toggle'
@@ -180,6 +199,29 @@ $(document).ready(function() {
 			);
 	}
 	
+	function showMap(mapSrc) {
+			
+			$('<iframe />', {
+			    name: 'myFrame',
+			    id:   'myFrame',
+			    frameborder:	'0',
+			    scrolling:	'no',
+			    marginheight:	'0',
+			    marginwidth:	'0'
+			}).insertAfter('#background'
+			).hide(
+			).attr('src', mapSrc
+			).load( function() {
+				$(this).fadeIn(1000,
+					function() {
+						$('#background').remove();
+						$(this).attr('id', 'background');
+					});
+				}
+			).addClass('bgimage'
+			);
+	}
+	
 	function initLinks() {
 		// add main nav function
 		$('a.page').click(activateLinks);
@@ -187,6 +229,7 @@ $(document).ready(function() {
 		$('a.caseStudy').click(activateCaseStudy);
 		initFeatures('0.15');
 	}
+
 	
 	// INIT
 	$('#mainNavigation li a').click(activateLinks);
