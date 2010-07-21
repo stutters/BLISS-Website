@@ -183,6 +183,7 @@ $(document).ready(function() {
 		// add main nav function
 		$('a.page').click(activateLinks);
 		$('a.showBG').click(showBG);
+		$('a.caseStudy').click(activateCaseStudy);
 		initFeatures('0.15');
 	}
 	
