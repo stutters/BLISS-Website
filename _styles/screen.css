@@ -74,13 +74,21 @@ body {
 	z-index:70;
 	position:absolute;
 	bottom:0;
-	height:110px;
+	height:130px;
 }
 
 #featureContainer {
 	width: 950px;
 	margin: 10px auto 0 auto;
 	overflow: auto;
+}
+
+.smallFeature {
+	width: 110px;
+	margin: 0 10px 10px 0;
+	float:left;
+	height: 110px;
+	background-color:#fff;
 }
 
 div#navContainer {
@@ -180,7 +188,7 @@ h4 {
 
 #logo {
 	margin-top: -120px;
-	margin-left:  710px;
+	margin-left:  720px;
 	float: left;
 }
 
@@ -189,7 +197,7 @@ h4 {
 	background-color: rgba(255,255,255,0.5);
 	width: 230px;
 	left: 50%;
-	margin-left: 235px;
+	margin-left: 245px;
 	position: absolute;
 	top: 240px;
 }
@@ -215,7 +223,7 @@ h4 {
 .yellow {
 	border-color: #F7B72D;
 	color: #F7B72D;
-	background-color: #F7B72D !important;
+	background-color: #F7B72D;
 }
 .yellow a {
 	color: #F7B72D !important;
@@ -223,7 +231,7 @@ h4 {
 .red {
 	border-color: #B73720;
 	color: #B73720;
-	background-color: #B73720 !important;
+	background-color: #B73720;
 }
 .red a {
 	color: #B73720;
@@ -231,7 +239,7 @@ h4 {
 .purple {
 	border-color: #463E7F;
 	color: #463E7F;
-	background-color: #463E7F !important;
+	background-color: #463E7F;
 }
 .purple a {
 	color: #463E7F;
@@ -239,7 +247,7 @@ h4 {
 .blue {
 	border-color: #0083D7;
 	color: #0083D7;
-	background-color: #0083D7 !important;
+	background-color: #0083D7;
 }
 .blue a {
 	color: #0083D7;
@@ -247,14 +255,14 @@ h4 {
 .green {
 	border-color: #72AC23;
 	color: #72AC23;
-	background-color: #72AC23 !important;
+	background-color: #72AC23;
 }
 .green a {
 	color: #72AC23 !important;
 }
 .white {
 	border-color: #FFF;
-	background-color: #FFF !important;
+	background-color: #FFF;
 }
 .transparent {
 	background-color: transparent;

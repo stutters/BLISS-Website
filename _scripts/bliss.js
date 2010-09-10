@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	var $currentNavItem = false;
 	var toLoad;
-	var bgcolour = "yellow";
+	var bgcolour = "white";
 	var textColour = "white";
 	var hash = window.location.hash.substr(1);
 	var caseStudy = false;
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
 	function navChange(destination) {
 	
-		var $destination = destination.slice(0,(destination.indexOf('/',1)+1));
+		var $destination = toLoad.slice(0,(toLoad.indexOf('/',1)+1));
 			
 		var $navItem;
 		$("#mainNavigation a").each(function(index) {
@@ -43,8 +43,8 @@ $(document).ready(function() {
 		});
 		
 		// animate colour onto new nav item
-		bgcolour = $navItem.attr('class');
-		$navItem.parent().animateToClass(bgcolour, 500);
+		//bgcolour = $navItem.attr('class');
+		$navItem.parent().animateToClass(bgcolour, 1000);
 		
 		// set new current nav item
 		$currentNavItem = $navItem;
@@ -52,19 +52,17 @@ $(document).ready(function() {
 	}
 
 	function loadContent() {
-		// change content class
-		//$(this).parent().removeClass().addClass(bgcolour);
 		
 		//load content
-		var $page = $('<div />').load(toLoad + '#container,#bg', '',
+		var $page = $('<div />').load(toLoad + '#container,#bg,#footer', '',
 		function() { 
-			bgcolour = $("#contentContainer", $page).attr('class');
+			bgcolour = $("#footer", $page).attr('class');
 			var $content = $("#section", $page).contents();
 			var $supplementary = $("#supplementary", $page).contents();
 			var $heading = $page.find('h1').contents();
 			var $features = $page.find('#featureContainer').contents();
-			textColour = $page.find('h1').attr('class');
-			if (textColour=="") {textColour="white";}
+			//textColour = $page.find('h1').attr('class');
+			//if (textColour=="") {textColour="white";}
 
 			// load background image
 			if(!isContact && !mapCheck) {
@@ -100,18 +98,19 @@ $(document).ready(function() {
 		initLinks();
 		// animate content to show
 		document.title = $("h1").text().replace('.','') + " - BLISS";
-		$("#contentContainer").animateToClass(bgcolour, 500, function() {$("#contentContainer").removeClass().addClass(bgcolour);});
-		$("#iconBg").animateToClass(bgcolour, 500);
-		$("h1").css({ color: textColour });
-		$("ul#mainNavigation li a").animate({ color: textColour }, 'fast');
-		$("#viewImage").animate({ color: textColour }, 'fast');
+		navChange();
+		$("#footer").animateToClass(bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
+		//$("h1").css({ color: textColour });
+		//$("ul#mainNavigation li a").animate({ color: textColour }, 'fast');
+		//$("#viewImage").animate({ color: textColour }, 'fast');
 		$('#section').animate({
 			height: 'toggle'
 		},
-		500, 'swing', hideLoader);
+		100, 'swing', hideLoader);
 		$('h1').fadeIn();
 		$('#supplementary').fadeIn();
 		$('#featureContainer').fadeIn();
+		
 	}
 	function hideLoader() {
 		//$('#load').fadeOut('normal');
@@ -139,7 +138,7 @@ $(document).ready(function() {
 			 window.location.hash = $(this).attr('href').substr(0, $(this).attr('href').length);
 
 			 // change nav colour
-			 navChange($(this).attr('href'));
+			 //navChange($(this).attr('href'));
 
 			 return false;
 
