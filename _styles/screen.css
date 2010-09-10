@@ -77,6 +77,15 @@ body {
 	height:130px;
 }
 
+#footerLinks {
+	color: #FFF !important;
+	font-weight: 700;
+	font-size: 18px;
+	text-transform: uppercase;	
+	width:230px;
+	float:right;
+}
+
 #featureContainer {
 	width: 950px;
 	margin: 10px auto 0 auto;
