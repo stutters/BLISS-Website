@@ -14,7 +14,7 @@ $(document).ready(function() {
 		var href = $(this).attr('href');	
 		if (hash == href.substr(0, href.length)) {
 			toLoad = hash;
-			navChange(toLoad);
+			navChange();
 			 $('#section').animate({
 				 height: 'toggle'
 			 },
@@ -29,8 +29,8 @@ $(document).ready(function() {
 	// check for hash
 	$('#mainNavigation li a').each(checkHash);
 
-	function navChange(destination) {
-	
+	function navChange() {
+		
 		var $destination = toLoad.slice(0,(toLoad.indexOf('/',1)+1));
 			
 		var $navItem;
