@@ -68,17 +68,20 @@ $(document).ready(function() {
 			if(!isContact && !mapCheck) {
 				var $backgroundSrc = $page.find('.bgimage').attr('src');
 				changeBGImage($backgroundSrc);
+				
 			}
-			else if (isContact) {
-				// leaving contact page
+			else if (isContact && !mapCheck) {
+				// arriving at contact page
 				var $mapSrc = $("#map", $page).attr('src');
 				showMap($mapSrc);
+				mapCheck=true;
 			}
 			else {
-				// arriving at contact page
+				// leaving contact page
 				var $backgroundSrc = $page.find('.bgimage').attr('src');
-				// hide map
-				
+				changeBGImage($backgroundSrc);
+				mapCheck=false;
+				isContact=false;
 			}
 
 			// insert content and heading
@@ -186,13 +189,12 @@ $(document).ready(function() {
 			var img = new Image();
 			$(img).load(function() {
 				$('#background').after(this);
-				$(this).fadeIn(1000,
+				$(this).css('left','-25%').animate({left:'25%'},1000,'swing',
 				function() {
 					$('#background').remove();
 					$(this).attr('id', 'background');
 				});
 			}
-			).hide(
 			).addClass('bgimage'
 			).attr('src', imageSrc
 			);
@@ -208,15 +210,15 @@ $(document).ready(function() {
 			    marginheight:	'0',
 			    marginwidth:	'0'
 			}).insertAfter('#background'
-			).hide(
 			).attr('src', mapSrc
 			).load( function() {
-				$(this).fadeIn(1000,
+				$(this).css('left','-25%').show().animate({left:'25%'},1000,'swing',
 					function() {
 						$('#background').remove();
 						$(this).attr('id', 'background');
 					});
 				}
+			).hide(
 			).addClass('bgimage'
 			);
 	}
