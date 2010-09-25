@@ -72,7 +72,7 @@ $(document).ready(function() {
 			}
 			else if (isContact && !mapCheck) {
 				// arriving at contact page
-				var $mapSrc = $("#map", $page).attr('src');
+				var $mapSrc = $("#background", $page).attr('src');
 				showMap($mapSrc);
 				mapCheck=true;
 			}
@@ -168,6 +168,18 @@ $(document).ready(function() {
 	
 	}
 	
+	function useMap() {
+		$('#container').fadeOut();
+		$('#useMap').text('View Content').unbind('click',showBG).click(hideMap);
+		$('#background').attr('src','http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Bliss+Digital,+The+Landmark,+17-21+Back+Turner+St,+Manchester,+M41FR,+United+Kingdom&amp;sll=37.0625,-95.677068&amp;sspn=45.736609,73.476563&amp;ie=UTF8&amp;hq=Bliss+Digital,+The+Landmark,&amp;hnear=The+Landmark,+17-21+Back+Turner+St,+Manchester+M4+1FR,+United+Kingdom&amp;ll=53.484178,-2.237502&amp;spn=0.00211,0.004517&amp;z=14&amp;iwloc=A&amp;cid=7243559190158937974&amp;output=embed');
+		return false;
+	}
+	
+	function hideMap() {
+		$('#container').fadeIn();
+		$('#useMap').text('View Map').unbind('click',hideMap).click(useMap);
+	}
+	
 	function hideBG() {
 
 		$('#navContainer').animate({'marginTop':'0px'});
@@ -189,7 +201,7 @@ $(document).ready(function() {
 			var img = new Image();
 			$(img).load(function() {
 				$('#background').after(this);
-				$(this).css('left','-25%').animate({left:'25%'},1000,'swing',
+				$(this).css('top',($(this).height()*-0.1)).animate({top:'25%'},1000,'swing',
 				function() {
 					$('#background').remove();
 					$(this).attr('id', 'background');
@@ -211,8 +223,9 @@ $(document).ready(function() {
 			    marginwidth:	'0'
 			}).insertAfter('#background'
 			).attr('src', mapSrc
+			).css('min-height',($(this).height()-130)
 			).load( function() {
-				$(this).css('left','-25%').show().animate({left:'25%'},1000,'swing',
+				$(this).css('top',($(this).height()*-0.1)).show().animate({top:'25%'},1000,'swing',
 					function() {
 						$('#background').remove();
 						$(this).attr('id', 'background');
@@ -228,6 +241,7 @@ $(document).ready(function() {
 		$('a.page').click(activateLinks);
 		$('a.showBG').click(showBG);
 		$('a.caseStudy').click(activateCaseStudy);
+		$('a.useMap').click(useMap);
 		initFeatures('0.15');
 	}
 
