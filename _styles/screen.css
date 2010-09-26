@@ -20,7 +20,7 @@ body {
 	min-height: 100%;
 	bottom: 0;
 	font-family: 'Myriad Pro', Myriad, Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans', 'Gill Sans MT', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size:  14px;
+	font-size:  16px;
 	line-height: 16px;
 	overflow: visible;
 	background-color:#000;
@@ -88,12 +88,22 @@ body {
 	margin: 10px auto 0 auto;
 	overflow: auto;
 }
+#featureContainer a {
+	color: #FFF !important;	
+}
 .smallFeature {
 	width: 110px;
 	margin: 0 10px 10px 0;
 	float:left;
 	height: 110px;
 	background-color:#fff;
+}
+.feature {
+	width:230px;
+	margin: - 10px 10px 0;
+	float: left;
+	height:110px;
+	color: #FFF !important;
 }
 div#navContainer {
 	width: 950px;
@@ -181,6 +191,7 @@ h4 {
 	text-transform: uppercase;
 	background-color: transparent !important;
 	color: #000;
+	margin-bottom:16px
 }
 #logo {
 	margin-top: -120px;
@@ -188,7 +199,7 @@ h4 {
 	float: left;
 }
 #supplementaryContainer {
-	background-color: #fff;
+	/*background-color: #fff;*/
 	width: 230px;
 	left: 50%;
 	margin-left: 245px;

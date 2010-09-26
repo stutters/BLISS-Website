@@ -8,11 +8,17 @@
 			include $_SERVER["DOCUMENT_ROOT"].'/_includes/head.html';
 
 		?>
+<script src="_scripts/jquery.countdown.pack.js" language="javascript"></script>
 <script language="javascript">
 
 			$(function() {
 					
 					buildMap('background');
+					$('h1').countdown({
+						since: $.countdown.UTCDate(+1, 2010, 9 - 1, 26),
+						layout:'{dn}d, {hnn}h, {mnn}m, {snn}s...',
+						compact:true
+						});
 
 			});
  
@@ -23,17 +29,16 @@
 <div id="container">
   <div id="header">
     <header>
-      <h1 class="shadow">Contact &amp; find us.</h1>
+      <h1 class="shadow" style="font-size:80px;"></h1>
     </header>
   </div>
   <div id="contentContainer">
     <div id="section">
       <section>
-        <h2>We live in <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Bliss+Digital,+The+Landmark,+17-21+Back+Turner+St,+Manchester,+M41FR,+United+Kingdom&sll=37.0625,-95.677068&sspn=45.736609,73.476563&ie=UTF8&hq=Bliss+Digital,+The+Landmark,&hnear=The+Landmark,+17-21+Back+Turner+St,+Manchester+M4+1FR,+United+Kingdom&ll=53.484174,-2.237483&spn=0.00211,0.004517&z=18&iwloc=A" target="_blank" class="useMap">The Landmark on Back Turner Street</a> in the <a href="/http://en.wikipedia.org/wiki/Northern_Quarter_%28Manchester%29" target="_blank">Northern Quarter</a> of Manchester. Why not stop by for a chat sometime?</h2>
+        <h2>...since our new site should have launched.<br/>
+          <br/>
+          We've been really busy creating beautiful, useful websites and engaging digital marketing campaigns for our clients, but please bear with us - we're nearly there!</h2>
       </section>
-    </div>
-    <div id="supplementaryContainer">
-
     </div>
   </div>
   <div id="navContainer">
@@ -55,17 +60,37 @@
     </div>
     <img id="logo" alt="BLISS *" src="/_images/logo-transparent.png" /> </div>
 </div>
+<div id="supplementaryContainer"> <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Bliss+Digital,+The+Landmark,+17-21+Back+Turner+St,+Manchester,+M41FR,+United+Kingdom&sll=37.0625,-95.677068&sspn=45.736609,73.476563&ie=UTF8&hq=Bliss+Digital,+The+Landmark,&hnear=The+Landmark,+17-21+Back+Turner+St,+Manchester+M4+1FR,+United+Kingdom&ll=53.484174,-2.237483&spn=0.00211,0.004517&z=18&iwloc=A" target="_blank" class="useMap">View Map</a> </div>
 <div id="footer" class="green">
   <footer>
     <div id="featureContainer">
-      <div class="smallFeature"> <a href="/_images/sun-burst.jpg" class="caseStudy" title="This is the description"><img src="/_images/ahold-logo.png" alt="Royal Ahold logo" /></a> </div>
-         <h4>Get in touch:</h4>
-        <ul id="footerLinks">
+      <div class="feature">
+        <h4>Some of our work:</h4>
+        <ul>
+          <li><a href="http://www.rrg-group.com/" target="_blank">RRG Group</a></li>
+          <li><a href="http://www.supponor.com/" target="_blank">Supponor</a></li>
+          <li><a href="http://www.valeholidayparks.com/" target="_blank">Vale Holiday Parks</a></li>
+          <li><a href="http://www.ahold.com/" target="_blank">Royal Ahold</a></li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h4>Some of our services:</h4>
+        <ul>
+          <li>Web design and development.</li>
+          <li>Digital marketing</li>
+          <li>Mobile application development</li>
+          <li>Creative services</li>
+        </ul>
+      </div>
+      <div id="footerLinks" >
+        <h4>Get in touch:</h4>
+        <ul>
           <li><a href="mailto:hello@thisisbliss.com">hello@thisisbliss.com</a></li>
-          <li>0161 819 5847</li>
-          <li><a href="http://twitter.com/@blisshq" target="_blank">twitter.com/@blisshq</a>
+          <li><a href="http://twitter.com/@blisshq" target="_blank">twitter.com/@blisshq</a></li>
+          <li>Phone: 0161 819 5847</li>
           <li></li>
         </ul>
+      </div>
     </div>
   </footer>
 </div>

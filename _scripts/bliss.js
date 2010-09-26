@@ -174,7 +174,7 @@ $(document).ready(function() {
 	
 	function useMap() {
 		$('#container').fadeOut();
-		$('#useMap').text('View Content').unbind('click',useMap).click(hideMap);
+		$('.useMap').text('View Content').unbind('click',useMap).click(hideMap);
 		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 		map.setOptions({navigationControl: true,
   						mapTypeControl: true,
@@ -185,12 +185,13 @@ $(document).ready(function() {
 	
 	function hideMap() {
 		$('#container').fadeIn();
-		$('#useMap').text('View Map').unbind('click',hideMap).click(useMap);
+		$('.useMap').text('View Map').unbind('click',hideMap).click(useMap);
 		map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
 		map.setOptions({navigationControl: false,
   						mapTypeControl: false,
   						scaleControl: false
 						});
+		return false;
 	}
 	
 	function hideBG() {
@@ -264,7 +265,7 @@ $(document).ready(function() {
 					marker = new google.maps.Marker({
 					  position: new google.maps.LatLng(53.484174,-2.237483),
 					  map: map,
-					  icon: 'http://google-maps-icons.googlecode.com/files/factory.png',
+					  //icon: 'http://google-maps-icons.googlecode.com/files/factory.png',
 					  visible: true
 					});
 					
@@ -285,7 +286,7 @@ $(document).ready(function() {
 		$('a.showBG').click(showBG);
 		$('a.caseStudy').click(activateCaseStudy);
 		$('a.useMap').click(useMap);
-		initFeatures('0.15');
+		//initFeatures('0.15');
 	}
 
 	
