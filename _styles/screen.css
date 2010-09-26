@@ -74,10 +74,10 @@ body {
 	float:right;
 }
 #footerLinks li {
-	background-image: url(../_images/small-bullet.png);
+	/*background-image: url(../_images/small-bullet.png);
 	background-repeat: no-repeat;
 	background-position: center left;
-	padding-left: 20px;
+	padding-left: 20px;*/
 }
 #footerLinks a {
 	color: #FFF !important;
@@ -316,7 +316,7 @@ div.thumb {
 	position: fixed;
 	top:0px;
 }
-#bg div {
+#bg div#innerbg {
 	height:200%;
 	left:-50%;
 	position:absolute;
@@ -327,11 +327,12 @@ div.thumb {
 	text-align:center;
 	vertical-align:middle;
 }
-#bg img, #bg iframe {
+.bgimage {
 	margin:0;
 	min-height:50%;
 	min-width:50%;
 	position:absolute;
 	top:25%;
 	left:25%;
+	display:block;
 }

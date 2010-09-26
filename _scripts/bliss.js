@@ -8,6 +8,11 @@ $(document).ready(function() {
 	var caseStudy = false;
 	var isContact = false;
 	var mapCheck = false;
+	var options;
+	var map;
+	var latlng;
+	var marker;
+	var infowindow;
 
 	// if hash exists, load content
 	function checkHash() { 
@@ -72,8 +77,7 @@ $(document).ready(function() {
 			}
 			else if (isContact && !mapCheck) {
 				// arriving at contact page
-				var $mapSrc = $("#background", $page).attr('src');
-				showMap($mapSrc);
+				showMap();
 				mapCheck=true;
 			}
 			else {
@@ -170,14 +174,23 @@ $(document).ready(function() {
 	
 	function useMap() {
 		$('#container').fadeOut();
-		$('#useMap').text('View Content').unbind('click',showBG).click(hideMap);
-		$('#background').attr('src','http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Bliss+Digital,+The+Landmark,+17-21+Back+Turner+St,+Manchester,+M41FR,+United+Kingdom&amp;sll=37.0625,-95.677068&amp;sspn=45.736609,73.476563&amp;ie=UTF8&amp;hq=Bliss+Digital,+The+Landmark,&amp;hnear=The+Landmark,+17-21+Back+Turner+St,+Manchester+M4+1FR,+United+Kingdom&amp;ll=53.484178,-2.237502&amp;spn=0.00211,0.004517&amp;z=14&amp;iwloc=A&amp;cid=7243559190158937974&amp;output=embed');
+		$('#useMap').text('View Content').unbind('click',useMap).click(hideMap);
+		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+		map.setOptions({navigationControl: true,
+  						mapTypeControl: true,
+  						scaleControl: true
+						});
 		return false;
 	}
 	
 	function hideMap() {
 		$('#container').fadeIn();
 		$('#useMap').text('View Map').unbind('click',hideMap).click(useMap);
+		map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+		map.setOptions({navigationControl: false,
+  						mapTypeControl: false,
+  						scaleControl: false
+						});
 	}
 	
 	function hideBG() {
@@ -212,28 +225,58 @@ $(document).ready(function() {
 			);
 	}
 	
-	function showMap(mapSrc) {
-			
-			$('<iframe />', {
-			    name: 'myFrame',
-			    id:   'myFrame',
-			    frameborder:	'0',
-			    scrolling:	'no',
-			    marginheight:	'0',
-			    marginwidth:	'0'
-			}).insertAfter('#background'
-			).attr('src', mapSrc
+	function showMap() {
+		
+			$('<div />'
+			).attr('id','myMap'
+			).insertAfter('#background'
 			).css('min-height',($(this).height()-130)
-			).load( function() {
-				$(this).css('top',($(this).height()*-0.1)).show().animate({top:'25%'},1000,'swing',
+			).addClass('bgimage'
+			);
+			
+			buildMap('myMap');
+			
+			$('#myMap').css('top',($(this).height()*-0.1)).show().animate({top:'25%'},1000,'swing',
 					function() {
 						$('#background').remove();
 						$(this).attr('id', 'background');
+			});
+			
+			
+	}
+	
+	window["buildMap"] = function(mapID) {
+		
+					latlng = new google.maps.LatLng(53.484174,-2.237483);
+					options = {
+					  zoom: 16,
+					  center: latlng,
+					  mapTypeId: google.maps.MapTypeId.SATELLITE,
+					  disableDefaultUI: true,
+					  navigationControlOptions: { 
+					  	style: google.maps.NavigationControlStyle.ZOOM_PAN
+					  }
+					};
+	
+					map = new google.maps.Map(document.getElementById(mapID), options); 
+					
+					// Creating a marker and positioning it on the map
+					marker = new google.maps.Marker({
+					  position: new google.maps.LatLng(53.484174,-2.237483),
+					  map: map,
+					  icon: 'http://google-maps-icons.googlecode.com/files/factory.png',
+					  visible: true
 					});
-				}
-			).hide(
-			).addClass('bgimage'
-			);
+					
+					// Creating an InfoWindow object
+					infowindow = new google.maps.InfoWindow({
+					  content: 'Hello world'
+					});
+					
+					google.maps.event.addListener(marker, 'click', function() {
+					  infowindow.open(map, marker);
+					});
+					
 	}
 	
 	function initLinks() {
@@ -250,13 +293,6 @@ $(document).ready(function() {
 	$('#mainNavigation li a').click(activateLinks);
 	initLinks();
 	
-	// set initial nav item
-	if(hash=="") {
-		navChange(window.location.pathname);
-	}
-	
 	// create view image button
 	$('#viewImage').text('View Image').click(showBG);
-
-
 });
