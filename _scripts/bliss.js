@@ -271,7 +271,7 @@ $(document).ready(function() {
 					
 					// Creating an InfoWindow object
 					infowindow = new google.maps.InfoWindow({
-					  content: 'Hello world'
+					  content: '<div style="text-align:left;"><h4 style="margin-bottom:0;">BLISS</h4><address><p style="font-style:normal;">The Landmark,<br/>21 Back Turner Street,<br/>Manchester,<br/>M4 1FR.</p></address></div>'
 					});
 					
 					google.maps.event.addListener(marker, 'click', function() {

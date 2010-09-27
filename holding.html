@@ -2,12 +2,16 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Contact &amp; find us - BLISS</title>
-<?php
-
-			include $_SERVER["DOCUMENT_ROOT"].'/_includes/head.html';
-
-		?>
+<title>BLISS</title>
+<link rel="stylesheet" type="text/css" media="screen" href="/_styles/screen.css" />
+<script type="text/javascript"
+ src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://use.typekit.com/emc7aux.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript" src="/_scripts/jquery.animateToClass.js"></script>
+<script type="text/javascript" src="/_scripts/colour.min.js"></script>
+<script type="text/javascript" src="/_scripts/bliss.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="_scripts/jquery.countdown.pack.js" language="javascript"></script>
 <script language="javascript">
 
@@ -15,7 +19,7 @@
 					
 					buildMap('background');
 					$('h1').countdown({
-						since: $.countdown.UTCDate(+1, 2010, 9 - 1, 26),
+						since: new Date(2010, 9 - 1, 26),
 						layout:'{dn}d, {hnn}h, {mnn}m, {snn}s...',
 						compact:true
 						});
@@ -23,6 +27,19 @@
 			});
  
 		
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18763883-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
 </head>
 <body>
@@ -37,7 +54,7 @@
       <section>
         <h2>...since our new site should have launched.<br/>
           <br/>
-          We've been really busy creating beautiful, useful websites and engaging digital marketing campaigns for our clients, but please bear with us - we're nearly there!</h2>
+          We're nearly finished, but if you want to find out more in the meantime, please phone, <a href="mailto:hello@thisisbliss.com">email</a> or drop in at any time.</h2>
       </section>
     </div>
   </div>
@@ -60,7 +77,7 @@
     </div>
     <img id="logo" alt="BLISS *" src="/_images/logo-transparent.png" /> </div>
 </div>
-<div id="supplementaryContainer"> <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Bliss+Digital,+The+Landmark,+17-21+Back+Turner+St,+Manchester,+M41FR,+United+Kingdom&sll=37.0625,-95.677068&sspn=45.736609,73.476563&ie=UTF8&hq=Bliss+Digital,+The+Landmark,&hnear=The+Landmark,+17-21+Back+Turner+St,+Manchester+M4+1FR,+United+Kingdom&ll=53.484174,-2.237483&spn=0.00211,0.004517&z=18&iwloc=A" target="_blank" class="useMap">View Map</a> </div>
+<div id="supplementaryContainer"><a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Bliss+Digital,+The+Landmark,+17-21+Back+Turner+St,+Manchester,+M41FR,+United+Kingdom&sll=37.0625,-95.677068&sspn=45.736609,73.476563&ie=UTF8&hq=Bliss+Digital,+The+Landmark,&hnear=The+Landmark,+17-21+Back+Turner+St,+Manchester+M4+1FR,+United+Kingdom&ll=53.484174,-2.237483&spn=0.00211,0.004517&z=18&iwloc=A" target="_blank" class="useMap">View Map</a></div>
 <div id="footer" class="green">
   <footer>
     <div id="featureContainer">
@@ -76,7 +93,7 @@
       <div class="feature">
         <h4>Some of our services:</h4>
         <ul>
-          <li>Web design and development.</li>
+          <li>Web design and development</li>
           <li>Digital marketing</li>
           <li>Mobile application development</li>
           <li>Creative services</li>
