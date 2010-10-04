@@ -25,7 +25,7 @@ $(document).ready(function() {
 			 },
 			 500, 'swing', loadContent);
 			 $('h1').fadeOut();
-			 $('#supplementary').fadeOut();
+			 $('#supplementaryContainer').fadeOut();
 			$('#featureContainer').fadeOut();
 		}
 
@@ -41,15 +41,16 @@ $(document).ready(function() {
 		var $navItem;
 		$("#mainNavigation a").each(function(index) {
 			// remove bg colour from all nav
-			$(this).parent().css('background-color', 'transparent');
+			$(this).parent().addClass('transparent');
 			if ($(this).attr('href')==$destination) {
 				$navItem = $(this);
 			}
 		});
 		
 		// animate colour onto new nav item
-		//bgcolour = $navItem.attr('class');
-		$navItem.parent().animateToClass(bgcolour, 1000);
+		$navItem.parent().fadeOut('fast', function() {
+			$(this).removeClass().addClass(bgcolour).fadeIn('fast');
+		});
 		
 		// set new current nav item
 		$currentNavItem = $navItem;
@@ -63,7 +64,7 @@ $(document).ready(function() {
 		function() { 
 			bgcolour = $("#footer", $page).attr('class');
 			var $content = $("#section", $page).contents();
-			var $supplementary = $("#supplementary", $page).contents();
+			var $supplementary = $("#supplementaryContainer", $page).contents();
 			var $heading = $page.find('h1').contents();
 			var $features = $page.find('#featureContainer').contents();
 			//textColour = $page.find('h1').attr('class');
@@ -90,7 +91,7 @@ $(document).ready(function() {
 
 			// insert content and heading
 			$('#section').empty().append($content);
-			$('#supplementary').empty().append($supplementary);
+			$('#supplementaryContainer').empty().append($supplementary);
 			$('#featureContainer').empty().append($features);
 			$('h1').empty().append($heading);
 			// transform links and show content
@@ -115,7 +116,7 @@ $(document).ready(function() {
 		},
 		100, 'swing', hideLoader);
 		$('h1').fadeIn();
-		$('#supplementary').fadeIn();
+		$('#supplementaryContainer').fadeIn();
 		$('#featureContainer').fadeIn();
 		
 	}
@@ -136,7 +137,7 @@ $(document).ready(function() {
 			 },
 			 500, 'swing', loadContent);
 			 $('h1').fadeOut();	  
-			 $('#supplementary').fadeOut();
+			 $('#supplementaryContainer').fadeOut();
 			 $('#featureContainer').fadeOut();
 
 			 //$('#load').remove();
@@ -164,7 +165,6 @@ $(document).ready(function() {
 		if(!caseStudy) {
 			var contentShift = $(window).height() - $('#contentContainer').height() - $('#featureContainer').height() - 27;
 			$('#navContainer').animate({'marginTop':'-137px'});
-			$('#supplementary').fadeOut();
 			$("#contentContainer").animate({'marginTop':contentShift}).animate({'opacity':'0.15'}).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.15');});
 			initFeatures('0.15');
 			$('#viewImage').text('View Content').unbind('click',showBG).click(hideBG);
@@ -197,7 +197,7 @@ $(document).ready(function() {
 	function hideBG() {
 
 		$('#navContainer').animate({'marginTop':'0px'});
-		$('#supplementary').fadeIn();
+		$('#supplementaryContainer').fadeIn();
 		$("#contentContainer").animate({'marginTop':'265px'}).animate({'opacity':'1'}).unbind('mouseenter').unbind('mouseleave');
 		$('#viewImage').text('View Image').unbind('click',hideBG).click(showBG);
 	}

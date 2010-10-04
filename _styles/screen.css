@@ -19,7 +19,7 @@ body {
 	width: 100%;
 	min-height: 100%;
 	bottom: 0;
-	font-family: "myriad-pro-1","myriad-pro-2",serif;
+	font-family: "myriad-pro-1","myriad-pro-2",'Myriad Pro', Myriad, Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans', 'Gill Sans MT', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size:  16px;
 	line-height: 16px;
 	overflow: visible;
@@ -97,7 +97,7 @@ body {
 }
 .feature {
 	width:230px;
-	margin: - 10px 10px 0;
+	margin: 0 10px 10px 0;
 	float: left;
 	height:110px;
 	color: #FFF !important;
@@ -171,7 +171,7 @@ h2 {
 	font-weight: 400;
 	line-height: 32px;
 	color: #FFF !important;
-	text-shadow: rgba(0, 0, 0, 0.33) 1px 1px 0px;
+	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
@@ -203,46 +203,22 @@ h4 {
 	top: 277px;
 	z-index:80;
 }
-#supplementaryContainer a {
+#supplementaryContainer li {
 	font-size:32px;
 	line-height:32px;
 	text-transform:uppercase;
-	font-weight:700;
 	color:#FFF !important;
-	text-decoration: none;
-	text-shadow: rgba(0, 0, 0, 0.33) 1px 1px 0px;
+	font-weight:700;
+	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000');
 }
-/*#supplementary {
-	margin-left: 10px;
-	margin-top: 10px;
-	font-weight: 600;
+#supplementaryContainer li a {
+	color:#FFF !important;
+	text-decoration: none;
 }
-#supplementary a {
-	color: #000 !important;
-	background-color: transparent;
-	padding:0;
-	font-weight: 600;
-	font-size:32px;
-	text-transform:uppercase;
-}
-#supplementary a:hover {
-	background-color:#000;
-}
-#supplementary li {
-	margin: 10px 0;
-	background-image: url(../_images/small-bullet.png);
-	background-repeat: no-repeat;
-	background-position: center left;
-	padding-left: 20px;
-}
-#supplementary p {
-	margin: 10px 0;
-	line-height:16px;
-}*/
 .yellow {
 	border-color: #F7B72D;
 	color: #F7B72D;
@@ -297,15 +273,27 @@ form label {
 	margin: 10px 0 2px 0;
 }
 form input, form textarea, form select {
-	width: 210px;
-	border: 0;
-	background-color: #EEE;
+	width: 230px;
+	border: 1px inset;
+	background-color: #fff;
+}
+form textarea {
+	height: 66px;
+	overflow:auto;
 }
 form input {
 	height: 18px;
 }
-form select {
-	border: 2px solid #EEE;
+form input.submit {
+	height: 20px;
+	border:0;
+	font-weight:700;
+	text-transform:uppercase;
+	color:#fff;
+	background-color:#000;
+	margin-top:28px;
+	width: 110px;
+	font-size:16px;
 }
 div.thumb {
 	background-color: #EEE;
@@ -323,7 +311,7 @@ div.thumb {
 	left: -9999px;
 }
 .shadow {
-	text-shadow: rgba(0, 0, 0, 0.33) 1px 1px 0px;
+	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
