@@ -54,31 +54,10 @@ body {
 .on {
 	height: auto;
 }
-#footer {
-	width: 100%;
-	bottom: 0px;
-	z-index:70;
-	position:absolute;
-	bottom:0;
-	height:130px;
-}
-#footerLinks {
-	color: #FFF !important;
-	font-weight: 700;
-	font-size: 18px;
-	text-transform: uppercase;
-	width:230px;
-	float:right;
-}
-#footerLinks li {
-	/*background-image: url(../_images/small-bullet.png);
-	background-repeat: no-repeat;
-	background-position: center left;
-	padding-left: 20px;*/
-}
-#footerLinks a {
-	color: #FFF !important;
-	text-decoration:none;
+#supplementaryContainer li a {
+	color:#FFF !important;
+	text-decoration: none;
+	display:block;
 }
 #featureContainer {
 	width: 950px;
@@ -93,7 +72,7 @@ body {
 	margin: 0 10px 10px 0;
 	float:left;
 	height: 110px;
-	background-color:#fff;
+	background-image:url(../_images/icon-bg.png);
 }
 .feature {
 	width:230px;
@@ -203,21 +182,39 @@ h4 {
 	top: 277px;
 	z-index:80;
 }
-#supplementaryContainer li {
-	font-size:32px;
-	line-height:32px;
+#supplementaryContainer li, #footerLinks li {
+	font-size:16px;
+	line-height:16px;
 	text-transform:uppercase;
 	color:#FFF !important;
+	border-radius: 5px;
+	background-color:#000;
 	font-weight:700;
-	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000');
+	padding-top: 5px;
+	text-align:center;
+	opacity:0.5;
+	cursor:pointer;
+	margin-bottom:10px;
 }
-#supplementaryContainer li a {
+#supplementaryContainer li a, #footerLinks li a {
 	color:#FFF !important;
 	text-decoration: none;
+	display:block;
+}
+#footer {
+	width: 100%;
+	bottom: 0px;
+	z-index:70;
+	position:absolute;
+	bottom:0;
+	height:130px;
+}
+#footerLinks {
+	width:230px;
+	float:right;
+}
+#footerLinks li {	
+	opacity:1;
 }
 .yellow {
 	border-color: #F7B72D;
@@ -232,7 +229,7 @@ h4 {
 	color: #B73720;
 	background-color: #B73720;
 }
-.red a {
+.red a, .error {
 	color: #B73720;
 }
 .purple {
@@ -284,7 +281,7 @@ form textarea {
 form input {
 	height: 18px;
 }
-form input.submit {
+form input#submit {
 	height: 20px;
 	border:0;
 	font-weight:700;
@@ -294,7 +291,20 @@ form input.submit {
 	margin-top:28px;
 	width: 110px;
 	font-size:16px;
+	margin-bottom:16px;
+	border-radius: 5px;
+	padding-top: 1px;
 }
+form input#optin {
+	width:auto;
+	height:auto;
+}
+label#optin_label {
+	text-transform:none;
+	font-weight: 400;
+	display:inline;
+}
+
 div.thumb {
 	background-color: #EEE;
 	width: 110px;
@@ -319,10 +329,6 @@ div.thumb {
 }
 /* background image */
 
-* {
-	margin: 0;
-	padding: 0;
-}
 #bg {
 	position: fixed;
 	top:0px;

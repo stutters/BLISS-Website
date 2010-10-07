@@ -166,32 +166,9 @@ $(document).ready(function() {
 			var contentShift = $(window).height() - $('#contentContainer').height() - $('#featureContainer').height() - 27;
 			$('#navContainer').animate({'marginTop':'-137px'});
 			$("#contentContainer").animate({'marginTop':contentShift}).animate({'opacity':'0.15'}).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.15');});
-			initFeatures('0.15');
 			$('#viewImage').text('View Content').unbind('click',showBG).click(hideBG);
 		}
 	
-	}
-	
-	function useMap() {
-		$('#container').fadeOut();
-		$('.useMap').text('View Content').unbind('click',useMap).click(hideMap);
-		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
-		map.setOptions({navigationControl: true,
-  						mapTypeControl: true,
-  						scaleControl: true
-						});
-		return false;
-	}
-	
-	function hideMap() {
-		$('#container').fadeIn();
-		$('.useMap').text('View Map').unbind('click',hideMap).click(useMap);
-		map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
-		map.setOptions({navigationControl: false,
-  						mapTypeControl: false,
-  						scaleControl: false
-						});
-		return false;
 	}
 	
 	function hideBG() {
@@ -202,8 +179,26 @@ $(document).ready(function() {
 		$('#viewImage').text('View Image').unbind('click',hideBG).click(showBG);
 	}
 	
-	function initFeatures(thisOpacity) {
-		$("#featureContainer div").animate({'opacity':thisOpacity},500).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),thisOpacity);});
+	function useMap() {
+		$('#container').fadeOut();
+		$('.useMap').parent('li').children().text('View Content').unbind('click',useMap).click(hideMap);
+		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+		map.setOptions({navigationControl: true,
+  						mapTypeControl: true,
+  						scaleControl: true
+						});
+		return false;
+	}
+	
+	function hideMap() {
+		$('#container').fadeIn();
+		$('.useMap').parent('li').children().text('View Map').unbind('click',hideMap).click(useMap);
+		map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+		map.setOptions({navigationControl: false,
+  						mapTypeControl: false,
+  						scaleControl: false
+						});
+		return false;
 	}
 	
 	function changeOpacity(thisObject,thisOpacity) {
@@ -283,10 +278,12 @@ $(document).ready(function() {
 	function initLinks() {
 		// add main nav function
 		$('a.page').click(activateLinks);
-		$('a.showBG').click(showBG);
 		$('a.caseStudy').click(activateCaseStudy);
-		$('a.useMap').click(useMap);
-		//initFeatures('0.15');
+		$("a.useMap").click(useMap);
+		$('#viewImage').text('View Image').click(showBG);
+		
+		$('#supplementaryContainer li').mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.5');});
+		
 	}
 
 	
@@ -294,6 +291,4 @@ $(document).ready(function() {
 	$('#mainNavigation li a').click(activateLinks);
 	initLinks();
 	
-	// create view image button
-	$('#viewImage').text('View Image').click(showBG);
 });

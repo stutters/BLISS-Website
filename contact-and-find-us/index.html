@@ -12,7 +12,55 @@
 
 			$(function() {
 					
-					buildMap('background');
+				  buildMap('background');
+				
+				  $(".button").click(function() {
+					  
+					  $("label").removeClass('error').text;
+					  $("input").css("border-color","#FFFFFF");
+						
+					  var name = $("input#name").val();
+					  if (name == "") {
+						  $("label#name_label").text("Don't forget your name!").addClass('error');
+						  $("input#name").css("border-color","#B73720").focus();
+						  
+						  return false;
+					  }
+					  else {
+						  	$("label#name_label").removeClass('error').text("Your name:");
+					  		$("input#name").css("border-color","#FFFFFF");
+					  }
+					  
+					  var email = $("input#email").val();
+					  if (email == "") {
+					  	$("label#email_label").text("Don't forget your email!").addClass('error');
+					  	$("input#email").css("border-color","#B73720").focus();
+					  	return false;
+					  }
+					  else {
+						  	$("label#email_label").removeClass('error').text("Your name:");
+					  		$("input#email").css("border-color","#FFFFFF");
+					  }
+						
+						var dataString = 'name='+ name + '&email=' + email + '&message=' + message;
+						//alert (dataString);return false;
+						
+						$.ajax({
+					  type: "POST",
+					  url: "/_scripts/process.php",
+					  data: dataString,
+					  success: function() {
+						$('#contactForm').html("<div id='message' class='feature'></div>");
+						$('#message').html("<h2>Thanks for that!</h2>")
+						.append("<p>We will be in touch soon.</p>")
+						.hide()
+						.fadeIn(1500, function() {
+						  $('#message');
+						});
+					  }
+					 });
+					return false;
+					});
 
 			});
  
@@ -60,17 +108,21 @@
 <div id="footer" class="green">
   <footer>
     <div id="featureContainer">
-      <form action="http://www.jotform.com/submit.php" method="post" name="form_2733711468" id="2733711468" accept-charset="utf-8">
-      	<input type="hidden" name="formID" value="2733711468" />
+      <form action="" method="post" name="contactForm" id="contactForm" accept-charset="utf-8">
       	<div class="feature">
-      	<label for="input_3">Your name:</label><input id="input_3" name="q3_yourName" type="text"/>
-        <label for="input_2">Your email:</label><input id="input_2" name="q2_yourEmail" type="text"/>
+      	<label for="name" id="name_label">Your name:</label>
+        <input id="name" name="name" type="text"/>
+        <label for="email" id="email_label">Your email:</label>
+        <input id="email" name="email" type="text"/>
         </div>
         <div class="feature">
-        <label for="input_4">Your message:</label><textarea id="input_4" name="q4_yourMessage"></textarea>
+        <label for="message" id="message_label">Your message:</label>
+        <textarea id="message" name="message"></textarea>
         </div>
         <div class="feature">
-      	<input id="input_1" class="submit button" type="submit"/>
+      	<input id="submit" class="submit button" type="submit"/><br/>
+        <input type="checkbox" id="optin" name="optin" checked="true"/>
+        <label for="optin" id="optin_label">Stay in touch with me!</label>
       	</div>
       </form>
       <?php
