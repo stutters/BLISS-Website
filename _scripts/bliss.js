@@ -57,7 +57,7 @@ $(document).ready(function() {
 
 	}
 
-	function loadContent() {
+	function loadContent() { 
 		
 		//load content
 		var $page = $('<div />').load(toLoad + '#container,#bg,#footer', '',
@@ -67,8 +67,6 @@ $(document).ready(function() {
 			var $supplementary = $("#supplementaryContainer", $page).contents();
 			var $heading = $page.find('h1').contents();
 			var $features = $page.find('#featureContainer').contents();
-			//textColour = $page.find('h1').attr('class');
-			//if (textColour=="") {textColour="white";}
 
 			// load background image
 			if(!isContact && !mapCheck) {
@@ -101,16 +99,13 @@ $(document).ready(function() {
 		);
 	}
 
-	function showNewContent() {
+	function showNewContent() { 
 		// activate links
 		initLinks();
 		// animate content to show
 		document.title = $("h1").text().replace('.','') + " - BLISS";
 		navChange();
 		$("#footer").animateToClass(bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
-		//$("h1").css({ color: textColour });
-		//$("ul#mainNavigation li a").animate({ color: textColour }, 'fast');
-		//$("#viewImage").animate({ color: textColour }, 'fast');
 		$('#section').animate({
 			height: 'toggle'
 		},

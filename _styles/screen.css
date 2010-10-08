@@ -73,6 +73,10 @@ body {
 	float:left;
 	height: 110px;
 	background-image:url(../_images/icon-bg.png);
+	text-align:center;
+}
+.nobg {
+	background:none;
 }
 .feature {
 	width:230px;
