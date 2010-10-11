@@ -60,7 +60,8 @@ $(document).ready(function() {
 	function loadContent() { 
 		
 		//load content
-		var $page = $('<div />').load(toLoad + '#container,#bg,#footer', '',
+		
+		var $page = $('<div />').load(toLoad + ' #container,#bg,#footer,#supplementaryContainer',
 		function() { 
 			bgcolour = $("#footer", $page).attr('class');
 			var $content = $("#section", $page).contents();
@@ -104,8 +105,9 @@ $(document).ready(function() {
 		initLinks();
 		// animate content to show
 		document.title = $("h1").text().replace('.','') + " - BLISS";
-		navChange();
-		$("#footer").animateToClass(bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
+		navChange(); 
+		//$("#footer").animateToClass(bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
+		$("#footer").switchClass($("#footer").attr('class'), bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
 		$('#section').animate({
 			height: 'toggle'
 		},
