@@ -5,9 +5,9 @@ if ((isset($_POST['name'])) && (strlen(trim($_POST['name'])) > 0)) {
 if ((isset($_POST['email'])) && (strlen(trim($_POST['email'])) > 0)) {
 	$email = stripslashes(strip_tags($_POST['email']));
 } else {$email = 'No email entered';}
-if ((isset($_POST['phone'])) && (strlen(trim($_POST['phone'])) > 0)) {
-	$phone = stripslashes(strip_tags($_POST['phone']));
-} else {$phone = 'No phone entered';}
+if ((isset($_POST['message'])) && (strlen(trim($_POST['message'])) > 0)) {
+	$message = stripslashes(strip_tags($_POST['message']));
+} else {$message = 'No message entered';}
 ob_start();
 ?>
 <html>
@@ -26,8 +26,8 @@ ob_start();
     <td><?=$email;?></td>
   </tr>
   <tr bgcolor="#eeffee">
-    <td>Phone</td>
-    <td><?=$phone;?></td>
+    <td>Message</td>
+    <td><?=$message;?></td>
   </tr>
 </table>
 </body>
@@ -35,19 +35,13 @@ ob_start();
 <?
 $body = ob_get_contents();
 
-$to = 'someone@example.com';
-$email = 'email@example.com';
-$fromaddress = "you@example.com";
-$fromname = "Online Contact";
-
 require("phpmailer.php");
 
 $mail = new PHPMailer();
 
-$mail->From     = "mail@yourdomain.com";
-$mail->FromName = "Contact Form";
-$mail->AddAddress("email_address@example.com","Name 1");
-$mail->AddAddress("another_address@example.com","Name 2");
+$mail->From     = "hello@thisisbliss.com";
+$mail->FromName = "The BLISS website";
+$mail->AddAddress("jon@stutfield.com","Jon Stutfield");
 
 $mail->WordWrap = 50;
 $mail->IsHTML(true);
@@ -57,8 +51,8 @@ $mail->Body     =  $body;
 $mail->AltBody  =  "This is the text-only body";
 
 if(!$mail->Send()) {
-	$recipient = 'your_email@example.com';
-	$subject = 'Contact form failed';
+	$recipient = 'error@stutfield.com';
+	$subject = 'Contact form failed: '.$mail->ErrorInfo;
 	$content = $body;	
   mail($recipient, $subject, $content, "From: mail@yourdomain.com\r\nReply-To: $email\r\nX-Mailer: DT_formmail");
   exit;

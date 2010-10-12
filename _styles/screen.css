@@ -218,6 +218,7 @@ h4 {
 	position:absolute;
 	bottom:0;
 	height:130px;
+	color:#fff;
 }
 #footerLinks {
 	width:230px;
@@ -273,46 +274,62 @@ h4 {
 .transparent {
 	background-color: transparent;
 }
+form p {
+	position:relative;
+	font-size:18px;
+	font-weight:400;
+	color:#000;
+	margin:0;
+	padding:0;
+}
 form label {
-	display: block;
-	text-transform: uppercase;
-	font-weight: bold;
-	margin: 10px 0 2px 0;
+	position:absolute;
+	top:0;
+	left:0;
+	color:#CCC;
+	padding: 7px 0 0 8px;
 }
 form input, form textarea, form select {
-	width: 230px;
+	width: 222px;
 	border: 1px inset;
 	background-color: #fff;
+	padding: 7px 0 0 6px;
+	font-size: 18px;	
+	font-family: "myriad-pro-1","myriad-pro-2",'Myriad Pro', Myriad, Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans', 'Gill Sans MT', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 form textarea {
-	height: 66px;
+	height: 101px;
 	overflow:auto;
 }
 form input {
-	height: 18px;
+	height: 21px;
+	margin-bottom:10px
 }
-form input#submit {
-	height: 20px;
+form button#submit {
+	height: 110px;
+	background-image:url(../_images/send-button.png);
 	border:0;
 	font-weight:700;
 	text-transform:uppercase;
-	color:#fff;
-	background-color:#000;
-	margin-top:28px;
+	color:#000;
+	background-color:transparent;
 	width: 110px;
 	font-size:16px;
-	margin-bottom:16px;
-	border-radius: 5px;
-	padding-top: 1px;
+	font-family: "myriad-pro-1","myriad-pro-2",'Myriad Pro', Myriad, Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans', 'Gill Sans MT', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding-top: 70px;
 }
 form input#optin {
 	width:auto;
-	height:auto;
+	height:30px;
+	paddin:0;
+	margin:0;
 }
 label#optin_label {
 	text-transform:none;
 	font-weight: 400;
 	display:inline;
+	color: #FFF;
+	margin-left: 20px;
 }
 
 div.thumb {

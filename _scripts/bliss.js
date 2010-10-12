@@ -69,6 +69,12 @@ $(document).ready(function() {
 			var $heading = $page.find('h1').contents();
 			var $features = $page.find('#featureContainer').contents();
 
+			// insert content and heading
+			$('#section').empty().append($content);
+			$('#supplementaryContainer').empty().append($supplementary);
+			$('#featureContainer').empty().append($features);
+			$('h1').empty().append($heading);
+			
 			// load background image
 			if(!isContact && !mapCheck) {
 				var $backgroundSrc = $page.find('.bgimage').attr('src');
@@ -78,6 +84,7 @@ $(document).ready(function() {
 			else if (isContact && !mapCheck) {
 				// arriving at contact page
 				showMap();
+				activateForm();
 				mapCheck=true;
 			}
 			else {
@@ -87,12 +94,8 @@ $(document).ready(function() {
 				mapCheck=false;
 				isContact=false;
 			}
-
-			// insert content and heading
-			$('#section').empty().append($content);
-			$('#supplementaryContainer').empty().append($supplementary);
-			$('#featureContainer').empty().append($features);
-			$('h1').empty().append($heading);
+			
+			
 			// transform links and show content
 			showNewContent();
 		}
@@ -121,7 +124,7 @@ $(document).ready(function() {
 	}
 	function hideLoader() {
 		//$('#load').fadeOut('normal');
-		}
+	}
 
 	function activateLinks() {
 			 
@@ -273,6 +276,60 @@ $(document).ready(function() {
 					
 	}
 	
+	window["activateForm"] = function() {
+		
+			      $("label").inFieldLabels();
+				
+				  $(".button").click(function() { 
+					  
+					  $("label").removeClass('error').text;
+					  $("input").css("border-color","#FFFFFF");
+						
+					  var name = $("input#name").val();
+					  if (name == "") {
+						  $("label#name_label").text("Don't forget your name!").addClass('error');
+						  $("input#name").css("border-color","#B73720").focus();
+						  
+						  return false;
+					  }
+					  else {
+						  	$("label#name_label").removeClass('error').text("Your name:");
+					  		$("input#name").css("border-color","#FFFFFF");
+					  }
+					  
+					  var email = $("input#email").val();
+					  if (email == "") {
+					  	$("label#email_label").text("Don't forget your email!").addClass('error');
+					  	$("input#email").css("border-color","#B73720").focus();
+					  	return false;
+					  }
+					  else {
+						  	$("label#email_label").removeClass('error').text("Your name:");
+					  		$("input#email").css("border-color","#FFFFFF");
+					  }
+					  var message = $("textarea#message").val();
+						
+						var dataString = 'name='+ name + '&email=' + email + '&message=' + message;
+						//alert (dataString);return false;
+						
+						$.ajax({
+					  type: "POST",
+					  url: "/_scripts/process.php",
+					  data: dataString,
+					  success: function() {
+						$('#contactForm').html("<div id='message' class='feature'></div>");
+						$('#message').html("<h2>Thanks for your message!</h2><br/><br/>")
+						.append("<h3>We will be in touch soon.</h3>")
+						.hide()
+						.fadeIn(1500, function() {
+						  $('#message');
+						});
+					  }
+					 });
+					return false;
+					});
+	}
+	
 	function initLinks() {
 		// add main nav function
 		$('a.page').click(activateLinks);
@@ -280,7 +337,7 @@ $(document).ready(function() {
 		$("a.useMap").click(useMap);
 		$('#viewImage').click(showBG);
 		
-		$('#supplementaryContainer li,#footerLinks li').mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.75');});
+		$('#supplementaryContainer li,#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.75'});});
 		
 	}
 
