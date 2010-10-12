@@ -107,7 +107,9 @@ $(document).ready(function() {
 		document.title = $("h1").text().replace('.','') + " - BLISS";
 		navChange(); 
 		//$("#footer").animateToClass(bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
-		$("#footer").switchClass($("#footer").attr('class'), bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
+		if($("#footer").attr('class')!=bgcolour) {
+			$("#footer").switchClass($("#footer").attr('class'), bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
+		}
 		$('#section').animate({
 			height: 'toggle'
 		},
@@ -163,8 +165,9 @@ $(document).ready(function() {
 			var contentShift = $(window).height() - $('#contentContainer').height() - $('#featureContainer').height() - 27;
 			$('#navContainer').animate({'marginTop':'-137px'});
 			$("#contentContainer").animate({'marginTop':contentShift}).animate({'opacity':'0.15'}).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.15');});
-			$('#viewImage').text('View Content').unbind('click',showBG).click(hideBG);
+			$('#viewImage').unbind('click',showBG).bind('click',hideBG).find('span').text('View Content');
 		}
+		return false;
 	
 	}
 	
@@ -173,12 +176,13 @@ $(document).ready(function() {
 		$('#navContainer').animate({'marginTop':'0px'});
 		$('#supplementaryContainer').fadeIn();
 		$("#contentContainer").animate({'marginTop':'265px'}).animate({'opacity':'1'}).unbind('mouseenter').unbind('mouseleave');
-		$('#viewImage').text('View Image').unbind('click',hideBG).click(showBG);
+		$('#viewImage').unbind('click',hideBG).click(showBG).find('span').text('View Image');
+		return false;
 	}
 	
 	function useMap() {
 		$('#container').fadeOut();
-		$('.useMap').parent('li').children().text('View Content').unbind('click',useMap).click(hideMap);
+		$('.useMap').parent('li').children().unbind('click',useMap).click(hideMap).children('span').text('View Content');
 		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 		map.setOptions({navigationControl: true,
   						mapTypeControl: true,
@@ -189,7 +193,7 @@ $(document).ready(function() {
 	
 	function hideMap() {
 		$('#container').fadeIn();
-		$('.useMap').parent('li').children().text('View Map').unbind('click',hideMap).click(useMap);
+		$('.useMap').parent('li').children().unbind('click',hideMap).click(useMap).children('span').text('View Map');
 		map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
 		map.setOptions({navigationControl: false,
   						mapTypeControl: false,
@@ -277,11 +281,18 @@ $(document).ready(function() {
 		$('a.page').click(activateLinks);
 		$('a.caseStudy').click(activateCaseStudy);
 		$("a.useMap").click(useMap);
-		$('#viewImage').text('View Image').click(showBG);
+		$('#viewImage').click(showBG);
 		
-		$('#supplementaryContainer li').mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.5');});
+		$('#supplementaryContainer li,#footerLinks li').mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.75');});
 		
 	}
+
+	  // Bind the event.
+  $(window).hashchange( function(){
+    // Alerts every time the hash changes!
+    alert( location.hash );
+  })
+
 
 	
 	// INIT

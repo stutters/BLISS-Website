@@ -187,22 +187,28 @@ h4 {
 	z-index:80;
 }
 #supplementaryContainer li, #footerLinks li {
-	font-size:16px;
-	line-height:16px;
+	font-size:15px;
+	line-height:14px;
 	text-transform:uppercase;
-	color:#FFF !important;
-	border-radius: 5px;
-	background-color:#000;
+	color:#000 !important;
 	font-weight:700;
-	padding-top: 5px;
 	text-align:center;
-	opacity:0.5;
-	cursor:pointer;
-	margin-bottom:10px;
+	opacity:0.75;
+	background-image:url(/_images/side-button-bg.png);
+	background-repeat:no-repeat;
+	height:30px;
+	margin-bottom: 7px;
 }
 #supplementaryContainer li a, #footerLinks li a {
-	color:#FFF !important;
+	color:#000 !important;
 	text-decoration: none;
+	display:block;
+}
+#supplementaryContainer li img, #footerLinks li img {
+	float:left;
+}
+#supplementaryContainer li span, #footerLinks li span {
+	padding-top:7px;
 	display:block;
 }
 #footer {
@@ -218,7 +224,7 @@ h4 {
 	float:right;
 }
 #footerLinks li {	
-	opacity:1;
+	
 }
 .yellow {
 	border-color: #F7B72D;
