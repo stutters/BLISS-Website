@@ -124,14 +124,22 @@ $(document).ready(function() {
 		}
 
 	function activateLinks() {
+			 
+			 window.location.hash = $(this).attr('href').substr(0, $(this).attr('href').length);
 
-			 toLoad = $(this).attr('href');
-			 
-			 if(toLoad=="/contact-and-find-us/") {
+			 return false;
+
+	}
+	
+	function changePage(thisHash) { 
+		
+			toLoad = thisHash.substr(1, thisHash.length);
+			
+			if(toLoad=="/contact-and-find-us/") {
 			 	isContact=true;
-			 }
-			 
-			 $('#section').animate({
+			}
+		
+			$('#section').animate({
 				 height: 'toggle'
 			 },
 			 500, 'swing', loadContent);
@@ -142,13 +150,6 @@ $(document).ready(function() {
 			 //$('#load').remove();
 			 //$('#wrapper').append('<span id="load">LOADING...</span>');
 			 //$('#load').fadeIn('normal');
-			 window.location.hash = $(this).attr('href').substr(0, $(this).attr('href').length);
-
-			 // change nav colour
-			 //navChange($(this).attr('href'));
-
-			 return false;
-
 	}
 	
 	function activateCaseStudy() {
@@ -200,10 +201,6 @@ $(document).ready(function() {
   						scaleControl: false
 						});
 		return false;
-	}
-	
-	function changeOpacity(thisObject,thisOpacity) {
-		$(thisObject).animate({'opacity':thisOpacity},500);
 	}
 	
 	function changeBGImage(imageSrc) {
@@ -289,8 +286,8 @@ $(document).ready(function() {
 
 	  // Bind the event.
   $(window).hashchange( function(){
-    // Alerts every time the hash changes!
-    alert( location.hash );
+    // Watch for hash change
+	changePage( location.hash );
   })
 
 
