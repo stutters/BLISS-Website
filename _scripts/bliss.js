@@ -344,7 +344,7 @@ $(document).ready(function() {
 		$("a.useMap").click(useMap);
 		$('#viewImage').click(showBG);
 		
-		$('#supplementaryContainer li,#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.5'});});
+		$('#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.5'});});
 		
 	}
 

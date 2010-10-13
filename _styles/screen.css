@@ -154,7 +154,7 @@ h1 {
 h2 {
 	font-size: 32px;
 	width: 590px;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 32px;
 	color: #FFF !important;
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
@@ -196,7 +196,6 @@ h4 {
 	color:#000 !important;
 	font-weight:700;
 	text-align:center;
-	opacity:0.5;
 	background-image:url(/_images/side-button-bg.png);
 	background-repeat:no-repeat;
 	height:30px;
@@ -228,7 +227,7 @@ h4 {
 	float:right;
 }
 #footerLinks li {	
-	
+	opacity:0.5;
 }
 .yellow {
 	border-color: #F7B72D;
@@ -391,6 +390,7 @@ div.tweet span.time {
 #bg {
 	position: fixed;
 	top:0px;
+	background-color:#000;
 }
 #bg div#innerbg {
 	height:200%;
@@ -398,6 +398,7 @@ div.tweet span.time {
 	position:absolute;
 	top:-50%;
 	width:200%;
+	opacity:0.85;
 }
 #bg td {
 	text-align:center;
@@ -411,4 +412,5 @@ div.tweet span.time {
 	top:25%;
 	left:25%;
 	display:block;
+	
 }
