@@ -78,12 +78,15 @@ body {
 .nobg {
 	background:none;
 }
-.feature {
+.feature, .largeFeature {
 	width:230px;
 	margin: 0 10px 10px 0;
 	float: left;
 	height:110px;
 	color: #FFF !important;
+}
+.largeFeature {
+	width:580px;
 }
 div#navContainer {
 	width: 950px;
@@ -193,7 +196,7 @@ h4 {
 	color:#000 !important;
 	font-weight:700;
 	text-align:center;
-	opacity:0.75;
+	opacity:0.5;
 	background-image:url(/_images/side-button-bg.png);
 	background-repeat:no-repeat;
 	height:30px;
@@ -354,6 +357,35 @@ div.thumb {
 	/* For IE 5.5 - 7 */
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000');
 }
+
+/* twitter feeds */
+
+div.tweet {
+	overflow:hidden;
+}
+div.tweet img {
+	float:left;
+	border:1px solid white;
+}
+div.tweet p.text {
+	margin:0;
+}
+div.tweet p.text span.username {
+	text-transform:uppercase;
+	font-size: 14px;
+	font-weight:700;
+	padding-left: 10px;
+}
+div.tweet p.tweetText {
+	font-weight:400;
+	font-size:18px;
+}
+div.tweet span.time {
+	font-size:12px;
+	font-weight:400;
+}
+
+
 /* background image */
 
 #bg {

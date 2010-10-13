@@ -8,6 +8,18 @@
 			include $_SERVER["DOCUMENT_ROOT"].'/_includes/head.html';
 
 		?>
+<script language="javascript">
+
+			$(function() {
+					
+					initiateTwitter("redswish");
+					
+					
+
+			});
+ 
+		
+</script>
 </head>
 <body>
 <div id="container">
@@ -45,16 +57,18 @@
 		</div>
 </div>
     <div id="supplementaryContainer">
-      <div id="supplementary">
-        <h4>Suplementary:</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
-        </p>
-      </div>
+    	<ul>
+        <li><a href="mailto:nathan@thisisbliss.com"><img src="/_images/email-icon-small.png"/><span>Email Nathan</span></a></li>
+        <li><a target="_blank" href="http://twitter.com/redswish"><img src="/_images/twitter-icon-small.png"/><span>Follow Nathan</span></a></li>
+        <li><a target="_blank" href="http://www.redswish.com"><img src="/_images/web-icon-small.png"/><span>Visit website</span></a></li>
+        </ul>
     </div>
 <div id="footer" class="blue">
   <footer>
-    <div id="featureContainer"> Features </div>
+    <div id="featureContainer">
+    	<div id="redSwish" class="largeFeature twitterFeed">
+        </div>
+    </div>
   </footer>
 </div>
 <div id="bg">

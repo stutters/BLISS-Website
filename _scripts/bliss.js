@@ -95,6 +95,10 @@ $(document).ready(function() {
 				isContact=false;
 			}
 			
+			if($('.twitterFeed').length) {
+				initiateTwitter($('.twitterFeed').attr("id"));
+			}
+			
 			
 			// transform links and show content
 			showNewContent();
@@ -109,7 +113,6 @@ $(document).ready(function() {
 		// animate content to show
 		document.title = $("h1").text().replace('.','') + " - BLISS";
 		navChange(); 
-		//$("#footer").animateToClass(bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
 		if($("#footer").attr('class')!=bgcolour) {
 			$("#footer").switchClass($("#footer").attr('class'), bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
 		}
@@ -242,6 +245,10 @@ $(document).ready(function() {
 			
 	}
 	
+	window["initiateTwitter"] = function(username) {
+		$(".twitterFeed").liveTwitter(username, {limit: 1, rate: 300000, mode: 'user_timeline', showAuthor: true	});
+	}
+	
 	window["buildMap"] = function(mapID) {
 		
 					latlng = new google.maps.LatLng(53.484174,-2.237483);
@@ -337,7 +344,7 @@ $(document).ready(function() {
 		$("a.useMap").click(useMap);
 		$('#viewImage').click(showBG);
 		
-		$('#supplementaryContainer li,#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.75'});});
+		$('#supplementaryContainer li,#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.5'});});
 		
 	}
 
