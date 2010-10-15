@@ -159,9 +159,9 @@ h2 {
 	color: #FFF !important;
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000');
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
 }
 h3 {
 	font-size: 18px;
@@ -352,9 +352,9 @@ div.thumb {
 .shadow {
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000');
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
 }
 
 /* twitter feeds */
@@ -385,7 +385,7 @@ div.tweet span.time {
 }
 
 
-/* background image */
+/* background image 
 
 #bg {
 	position: fixed;
@@ -413,4 +413,19 @@ div.tweet span.time {
 	left:25%;
 	display:block;
 	
+}*/
+
+.bgimage {
+	background: #000 center center fixed no-repeat;
+	-moz-background-size: cover;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+	height:auto;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	position:absolute;
+	margin-bottom:120px;
 }

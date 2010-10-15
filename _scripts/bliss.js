@@ -61,7 +61,7 @@ $(document).ready(function() {
 		
 		//load content
 		
-		var $page = $('<div />').load(toLoad + ' #container,#bg,#footer,#supplementaryContainer',
+		var $page = $('<div />').load(toLoad + ' #container,#background,#footer,#supplementaryContainer',
 		function() { 
 			bgcolour = $("#footer", $page).attr('class');
 			var $content = $("#section", $page).contents();
@@ -77,7 +77,7 @@ $(document).ready(function() {
 			
 			// load background image
 			if(!isContact && !mapCheck) {
-				var $backgroundSrc = $page.find('.bgimage').attr('src');
+				var $backgroundSrc = $("#background", $page).css('backgroundImage').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 				
 			}
@@ -89,7 +89,7 @@ $(document).ready(function() {
 			}
 			else {
 				// leaving contact page
-				var $backgroundSrc = $page.find('.bgimage').attr('src');
+				var $backgroundSrc = $("#background", $page).css('backgroundImage').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 				mapCheck=false;
 				isContact=false;
@@ -210,17 +210,24 @@ $(document).ready(function() {
 	}
 	
 	function changeBGImage(imageSrc) {
-	
-			var img = new Image();
-			$(img).load(function() {
-				$('#background').after(this);
-				$(this).css('top',($(this).height()*-0.1)).animate({top:'25%'},1000,'swing',
+			
+			$('<img />').load(function() {
+				
+				$('<div />'
+				).attr('id','myBackground'
+				).insertAfter('#background'
+				).addClass('bgimage'
+				).css('backgroundImage','url('+imageSrc+')'
+				);
+				
+				document.getElementById('myBackground').style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+imageSrc+"', sizingMethod='image')";
+				
+				$('#myBackground').css('top',$(window).height()).animate({top:'0'},1000,'swing',
 				function() {
 					$('#background').remove();
-					$(this).attr('id', 'background');
+					$('#myBackground').attr('id', 'background');
 				});
 			}
-			).addClass('bgimage'
 			).attr('src', imageSrc
 			);
 	}
@@ -230,13 +237,12 @@ $(document).ready(function() {
 			$('<div />'
 			).attr('id','myMap'
 			).insertAfter('#background'
-			).css('min-height',($(this).height()-130)
 			).addClass('bgimage'
 			);
 			
 			buildMap('myMap');
 			
-			$('#myMap').css('top',($(this).height()*-0.1)).show().animate({top:'25%'},1000,'swing',
+			$('#myMap').css('top',$(window).height()).animate({top:'0'},1000,'swing',
 					function() {
 						$('#background').remove();
 						$(this).attr('id', 'background');
