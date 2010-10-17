@@ -134,35 +134,6 @@ $(document).ready(function() {
 			 //$('#load').fadeIn('normal');
 	}
 	
-	function activateCaseStudy() {
-
-		showBG();
-		changeBGImage($(this).attr('href'));
-		
-		return false;
-	}
-	
-	function showBG() {
-	
-		if(!caseStudy) {
-			var contentShift = $(window).height() - $('#contentContainer').height() - $('#featureContainer').height() - 27;
-			$('#navContainer').animate({'marginTop':'-137px'});
-			$("#contentContainer").animate({'marginTop':contentShift}).animate({'opacity':'0.15'}).mouseenter(function() {changeOpacity($(this),'1');}).mouseleave(function() {changeOpacity($(this),'0.15');});
-			$('#viewImage').unbind('click',showBG).bind('click',hideBG).find('span').text('View Content');
-		}
-		return false;
-	
-	}
-	
-	function hideBG() {
-
-		$('#navContainer').animate({'marginTop':'0px'});
-		$('#supplementaryContainer').fadeIn();
-		$("#contentContainer").animate({'marginTop':'265px'}).animate({'opacity':'1'}).unbind('mouseenter').unbind('mouseleave');
-		$('#viewImage').unbind('click',hideBG).click(showBG).find('span').text('View Image');
-		return false;
-	}
-	
 	function useMap() {
 		$('#container').fadeOut();
 		$('.useMap').parent('li').children().unbind('click',useMap).click(hideMap).children('span').text('View Content');
@@ -199,8 +170,6 @@ $(document).ready(function() {
 				
 				document.getElementById('myBackground').style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+imageSrc+"', sizingMethod='scale')";
 						
-				
-				//$('#myBackground').css('top',$(window).height()).animate({top:'0'},1000,'swing',
 				$('#myBackground').fadeIn(400,
 				function() {
 					$('#background').remove();
@@ -221,7 +190,7 @@ $(document).ready(function() {
 			
 			buildMap('myMap');
 			
-			$('#myMap').css('top',$(window).height()).animate({top:'0'},1000,'swing',
+			$('#myMap').fadeIn(400,
 					function() {
 						$('#background').remove();
 						$(this).attr('id', 'background');
@@ -325,9 +294,8 @@ $(document).ready(function() {
 	function initLinks() {
 		// add main nav function
 		$('a.page').click(activateLinks);
-		$('a.caseStudy').click(activateCaseStudy);
 		$("a.useMap").click(useMap);
-		$('#viewImage').click(showBG);
+		$("a[rel^='lightbox']").slimbox();
 		
 		$('#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.5'});});
 		
