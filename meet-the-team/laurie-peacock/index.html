@@ -8,18 +8,6 @@
 			include $_SERVER["DOCUMENT_ROOT"].'/_includes/head.html';
 
 		?>
-<script language="javascript">
-
-			$(function() {
-					
-					initiateTwitter("lauriepeacock85");
-					
-					
-
-			});
- 
-		
-</script>
 </head>
 <body>
 <div id="container">
@@ -34,38 +22,40 @@
         <h2>Though originally from London, Laurie spent most of his first 21 years in one of the <a href="http://en.wikipedia.org/wiki/Blackburn#Cultural_references" target="_blank">4000 holes in Blackburn, Lancashire</a>. At the age of 24, after years of delusion Laurie decided to give up on a life of Rock and Roll,  and settled for the next best thing - Digital Marketing. He subsequently married Fiona Galbraith (now Peacock) and moved to a farm in Marple, where they still reside today with their lovingly reared family, Dot, Sweep, and Milo.</h2>
       </section>
     </div>
-
-  </div>		<div id="navContainer">
-			
-			<div id="nav">
-				
-				<nav>
-					<ul id="mainNavigation">
-						<li id="ourApproach"><a class="yellow shadow" href="/our-approach/">Our<br/>approach</a></li>
-						<li id="caseStudies"><a href="/case-studies/" class="red shadow">Case<br/>studies</a></li>
-						<li id="productsServices"><a class="purple shadow" href="/products-and-services/">Products<br/>&amp; services</a></li>
-						<li id="meetTeam" class="blue"><a class="blue shadow" href="/meet-the-team/">Meet<br/>the team</a></li>
-						<li id="contactFindUs"><a class="green shadow" href="/contact-and-find-us/">Contact<br/>&amp; find us</a></li>
-					</ul>
-				</nav>
-				
-			</div>
-			
-			<img id="logo" alt="BLISS *" src="/_images/logo-transparent.png" />
-			
-		</div>
-</div>
-    <div id="supplementaryContainer">
-    	<ul>
-        <li><a href="mailto:laurie@thisisbliss.com"><img src="/_images/email-icon-small.png"/><span>Email Laurie</span></a></li>
-        <li><a target="_blank" href="http://twitter.com/lauriepeacock85"><img src="/_images/twitter-icon-small.png"/><span>Follow Laurie</span></a></li>
+  </div>
+  <div id="navContainer">
+    <div id="nav">
+      <nav>
+        <ul id="mainNavigation">
+          <li id="ourApproach"><a class="yellow shadow" href="/our-approach/">Our<br/>
+            approach</a></li>
+          <li id="caseStudies"><a href="/case-studies/" class="red shadow">Case<br/>
+            studies</a></li>
+          <li id="productsServices"><a class="purple shadow" href="/products-and-services/">Products<br/>
+            &amp; services</a></li>
+          <li id="meetTeam" class="blue"><a class="blue shadow" href="/meet-the-team/">Meet<br/>
+            the team</a></li>
+          <li id="contactFindUs"><a class="green shadow" href="/contact-and-find-us/">Contact<br/>
+            &amp; find us</a></li>
         </ul>
+      </nav>
     </div>
+    <img id="logo" alt="BLISS *" src="/_images/logo-transparent.png" /> </div>
+</div>
+<div id="supplementaryContainer">
+  <ul>
+    <li><a href="mailto:laurie@thisisbliss.com"><img src="/_images/email-icon-small.png"/><span>Email Laurie</span></a></li>
+    <li><a target="_blank" href="http://twitter.com/lauriepeacock85"><img src="/_images/twitter-icon-small.png"/><span>Follow Laurie</span></a></li>
+  </ul>
+</div>
 <div id="footer" class="blue">
   <footer>
     <div id="featureContainer">
-        	<div id="lauriepeacock85" class="largeFeature twitterFeed">
-        </div>
+      <?php
+
+			include $_SERVER["DOCUMENT_ROOT"].'/_includes/team.html';
+
+		?>
     </div>
   </footer>
 </div>

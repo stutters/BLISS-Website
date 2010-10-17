@@ -75,10 +75,6 @@ $(document).ready(function() {
 				isContact=false;
 			}
 			
-			if($('.twitterFeed').length) {
-				initiateTwitter($('.twitterFeed').attr("id"));
-			}
-			
 			
 			// transform links and show content
 			showNewContent();

@@ -8,18 +8,6 @@
 			include $_SERVER["DOCUMENT_ROOT"].'/_includes/head.html';
 
 		?>
-<script language="javascript">
-
-			$(function() {
-					
-					initiateTwitter("redswish");
-					
-					
-
-			});
- 
-		
-</script>
 </head>
 <body>
 <div id="container">
@@ -66,8 +54,11 @@
 <div id="footer" class="blue">
   <footer>
     <div id="featureContainer">
-    	<div id="redSwish" class="largeFeature twitterFeed">
-        </div>
+    <?php
+
+			include $_SERVER["DOCUMENT_ROOT"].'/_includes/team.html';
+
+		?>
     </div>
   </footer>
 </div>
