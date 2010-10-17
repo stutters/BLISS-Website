@@ -4,7 +4,6 @@ $(document).ready(function() {
 	var toLoad;
 	var bgcolour = "white";
 	var textColour = "white";
-	var hash = window.location.hash.substr(1);
 	var caseStudy = false;
 	var isContact = false;
 	var mapCheck = false;
@@ -14,25 +13,6 @@ $(document).ready(function() {
 	var marker;
 	var infowindow;
 
-	// if hash exists, load content
-	function checkHash() { 
-		var href = $(this).attr('href');	
-		if (hash == href.substr(0, href.length)) {
-			toLoad = hash;
-			navChange();
-			 $('#section').animate({
-				 height: 'toggle'
-			 },
-			 500, 'swing', loadContent);
-			 $('h1').fadeOut();
-			 $('#supplementaryContainer').fadeOut();
-			$('#featureContainer').fadeOut();
-		}
-
-	}
-
-	// check for hash
-	$('#mainNavigation li a').each(checkHash);
 
 	function navChange() {
 		

@@ -1,4 +1,18 @@
-		<link rel="stylesheet" type="text/css" media="screen" href="/_styles/screen.css" />
+		<script language="javascript">
+		
+        // if hash exists, redirect page
+		function checkHash() { 
+		
+			var thisHash = window.location.hash.substr(1);
+			if (thisHash.length>1) {
+				window.location = thisHash;
+				//alert(thisHash);
+			}
+		}
+		checkHash();
+		
+		</script>
+        <link rel="stylesheet" type="text/css" media="screen" href="/_styles/screen.css" />
         <script type="text/javascript" src="http://use.typekit.com/emc7aux.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
