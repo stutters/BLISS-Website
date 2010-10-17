@@ -44,20 +44,24 @@
 </div>
 <div id="supplementaryContainer">
   <div id="supplementary">
-    <h4>Discover more about:</h4>
-    <ul>
-      <li><a href="/">Unique creative direction</a></li>
-      <li><a href="/">Flexible agile development</a></li>
-      <li><a href="/">Transparent account management</a></li>
-    </ul>
-  </div>
+  <ul>
+    <li>
+        <a href="/_images/case-studies/supponor-home.png" rel="lightbox-rrg"><img src="/_images/photo-icon-small.png"/><span>View slideshow</span></a>
+        <a style="display:none;" href="/_images/case-studies/supponor-brands.png" rel="lightbox-rrg"></a>
+        <a style="display:none;" href="/_images/case-studies/supponor-video.png" rel="lightbox-rrg"></a>
+    </li>
+    <li><a href="http://www.rrg-group.com/" target="_blank"><img src="/_images/web-icon-small.png"/><span>View Supponor website</span></a></li>
+  </ul>
+</div>
 </div>
 <div id="footer" class="red">
   <footer>
     <div id="featureContainer">
-          <div class="smallFeature"><a href="/_images/case-studies/supponor-home.png" class="caseStudy" title=""><img src="/_images/supponor-home-thumb.png" alt="Supponor website" /></a></div>
-          <div class="smallFeature"><a href="/_images/case-studies/supponor-brands.png" class="caseStudy" title=""><img src="/_images/supponor-brands-thumb.png" alt="Supponor website brand page" /></a></div>
-          <div class="smallFeature"><a href="/_images/case-studies/supponor-video.png" class="caseStudy" title=""><img src="/_images/supponor-video-thumb.png" alt="Supponor promo video" /></a></div>
+      <?php
+
+			include $_SERVER["DOCUMENT_ROOT"].'/_includes/clients-links.html';
+
+		?>
       <?php
 
 			include $_SERVER["DOCUMENT_ROOT"].'/_includes/contact-links.html';

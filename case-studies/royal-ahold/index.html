@@ -43,18 +43,19 @@
     <img id="logo" alt="BLISS *" src="/_images/logo-transparent.png" /> </div>
 </div>
 <div id="supplementaryContainer">
-    <ul>
-      <li id="viewImage"><a href=""><img src="/_images/photo-icon-small.png"/><span>View image</span></a></li>
-      <li><a href="http://www.ahold.com/" target="_blank"><img src="/_images/web-icon-small.png"/><span>View Ahold website</span></a></li>
-    </ul>
+  <ul>
+    <li> <a href="/_images/case-studies/rrg-home.png" rel="lightbox-rrg"><img src="/_images/photo-icon-small.png"/><span>View slideshow</span></a> <a style="display:none;" href="/_images/case-studies/rrg-lexus.png" rel="lightbox-rrg"></a> <a style="display:none;" href="/_images/case-studies/rrg-iclaimit.png" rel="lightbox-rrg"></a> </li>
+    <li><a href="http://www.rrg-group.com/" target="_blank"><img src="/_images/web-icon-small.png"/><span>View RRG website</span></a></li>
+  </ul>
 </div>
 <div id="footer" class="red">
   <footer>
     <div id="featureContainer">
-      <div class="smallFeature"> <a href="/_images/sun-burst.jpg" class="caseStudy" title="This is the description"><img src="/_images/ahold-logo.png" alt="Royal Ahold logo" /></a> </div>
-      <div class="smallFeature"> <a href="/" class="caseStudy"><img src="/_images/rrg-logo.png" alt="RRG Group logo" /></a> </div>
-      <div class="smallFeature"> <a href="/" class="caseStudy"><img src="/_images/supponor-logo.png" alt="Supponor logo" /></a> </div>
-      <div class="smallFeature"> <a href="/" class="caseStudy"><img src="/_images/royal-mail-logo.png" alt="Royal Mail logo" /></a> </div>
+      <?php
+
+			include $_SERVER["DOCUMENT_ROOT"].'/_includes/clients-links.html';
+
+		?>
       <?php
 
 			include $_SERVER["DOCUMENT_ROOT"].'/_includes/contact-links.html';
