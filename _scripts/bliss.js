@@ -200,7 +200,10 @@ $(document).ready(function() {
 				).css('backgroundImage','url('+imageSrc+')'
 				);
 				
-				document.getElementById('myBackground').style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+imageSrc+"', sizingMethod='image')";
+				document.getElementById('myBackground').style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+imageSrc+"', sizingMethod='scale')";
+				
+				// if ie
+				
 				
 				$('#myBackground').css('top',$(window).height()).animate({top:'0'},1000,'swing',
 				function() {
