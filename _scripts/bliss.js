@@ -95,7 +95,7 @@ $(document).ready(function() {
 		$('#section').animate({
 			height: 'toggle'
 		},
-		100, 'swing', hideLoader);
+		100, 'swing');
 		$('h1').fadeIn();
 		$('#supplementaryContainer').fadeIn();
 		$('#featureContainer').fadeIn();

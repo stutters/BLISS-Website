@@ -25,6 +25,9 @@ body {
 	overflow: visible;
 	background-color:#000;
 }
+strong {
+	font-weight:700;
+}
 #container {
 	position:absolute;
 	top:0;
@@ -157,8 +160,8 @@ h1 {
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
 }
 h2 {
-	font-size: 32px;
-	width: 590px;
+	font-size: 25px;
+	width: 700px;
 	font-weight: 300;
 	line-height: 32px;
 	color: #FFF !important;
