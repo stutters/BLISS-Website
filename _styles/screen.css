@@ -142,9 +142,9 @@ ul#mainNavigation li a {
 	background-color: transparent !important;
 }
 h1 {
-	font-size: 60px;
+	font-size: 64px;
 	line-height: 72px;
-	font-weight: 400;
+	font-weight: 300;
 	position: absolute;
 	top: 137px;
 	left: 50%;
@@ -162,7 +162,7 @@ h1 {
 h2 {
 	font-size: 25px;
 	width: 700px;
-	font-weight: 300;
+	font-weight: 500;
 	line-height: 32px;
 	color: #FFF !important;
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
