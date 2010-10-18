@@ -55,16 +55,19 @@ $(document).ready(function() {
 			$('#featureContainer').empty().append($features);
 			$('h1').empty().append($heading);
 			
+			if ($('#contactForm').length>0) {
+				// activate form if present
+				activateForm();
+			}
+			
 			// load background image
 			if(!isContact && !mapCheck) {
 				var $backgroundSrc = $("#background", $page).css('backgroundImage').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
-				
 			}
 			else if (isContact && !mapCheck) {
 				// arriving at contact page
 				showMap();
-				activateForm();
 				mapCheck=true;
 			}
 			else {
