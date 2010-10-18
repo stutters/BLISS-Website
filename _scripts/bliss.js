@@ -124,7 +124,7 @@ $(document).ready(function() {
 			$('#section').animate({
 				 height: 'toggle'
 			 },
-			 500, 'swing', loadContent);
+			 400, 'swing', loadContent);
 			 $('h1').fadeOut();	  
 			 $('#supplementaryContainer').fadeOut();
 			 $('#featureContainer').fadeOut();
