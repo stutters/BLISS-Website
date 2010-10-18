@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	var baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
 	var $currentNavItem = false;
 	var toLoad;
 	var bgcolour = "white";
@@ -22,7 +23,8 @@ $(document).ready(function() {
 		$("#mainNavigation a").each(function(index) {
 			// remove bg colour from all nav
 			$(this).parent().addClass('transparent');
-			if ($(this).attr('href')==$destination) {
+			
+			if ($(this).get(0).getAttribute('href', 2)==$destination) {
 				$navItem = $(this);
 			}
 		});
@@ -109,9 +111,8 @@ $(document).ready(function() {
 	}
 
 	function activateLinks() {
+			 window.location.hash = $(this).get(0).getAttribute('href', 2);
 			 
-			 window.location.hash = $(this).attr('href').substr(0, $(this).attr('href').length);
-
 			 return false;
 
 	}
@@ -315,5 +316,6 @@ $(document).ready(function() {
 	// INIT
 	$('#mainNavigation li a').click(activateLinks);
 	initLinks();
+	
 	
 });
