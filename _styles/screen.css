@@ -237,6 +237,7 @@ h4 {
 }
 #footerLinks li {	
 	opacity:0.5;
+	filter:alpha(opacity=50);
 }
 .yellow {
 	border-color: #F7B72D;
@@ -350,9 +351,6 @@ div.thumb {
 	display: inline-block;
 	min-height: 110px;
 	float: left;
-}
-.caseStudyHover {
-	opacity:0.25;
 }
 #focus-stealer {
 	position: absolute;
