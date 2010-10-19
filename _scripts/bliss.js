@@ -278,7 +278,7 @@ $(document).ready(function() {
 						
 						$.ajax({
 					  type: "POST",
-					  url: "/_scripts/process.php",
+					  url: "/_includes/contact-form.html",
 					  data: dataString,
 					  success: function() {
 						$('#contactForm').html("<div id='message' class='feature'></div>");

@@ -1,12 +1,107 @@
+<?php
+  $sent = false;
+	// Check that the user posted all the correct details
+  if (!empty($_POST)) {
+    
+    //print 'You posted<pre>' . print_r($_POST,TRUE) . '</pre>';
+    
+    
+    $errors = array();
+    $fields = array(
+                'name' => array(
+                            'error' => 'Please enter your name',
+                            'required' => true,
+                          ),
+                'email' => array(
+                            'error' => 'Please enter your email',
+                            'requiredUnless' => 'phone',
+                          ),
+                'optin' => array(
+                              'required' => false,
+                             ),
+                'message' => array(
+                              'error' => 'Please enter a message',
+                              'required' => false,
+                             )
+              );
+    
+    foreach($fields as $field => $value) {
+      $fields[$field]['value'] = strip_tags($_POST[$field]);
+    }
+    
+    // Check that required fields were submitted
+    foreach($fields as $field => $value) {
+      if ($value['required'] == true && $value['value'] == '') {
+        $errors[$field] = $value['error'];
+      }
+      else if ($value['requiredUnless'] && ($value['value'] == '' && $fields[$value['requiredUnless']]['value'] == '')) {
+        $errors[$field] = $value['error'];
+      }
+    }
+    
+    // Check that email is valid
+    if($fields['email']['value']) {
+		  if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $fields['email']['value'])) { 
+		    // Not valid
+		    $fields['email']['error'] = 'Invalid email address';
+		    $errors['email'] = $fields['email']['error'];
+		  } 
+    }
+    
+      
+    // Check if all our fields were verified
+    if (empty($errors)) {
+    	// Add the user to Campaign Monitor
+    	if($fields['optin']['value']) {
+    	  require_once("../_scripts/CMBase.php");
+    	  $api_key = "aa0762b411bb1103d762cf7a48e71c9b";
+    	  $client_id = null;
+				$campaign_id = null;
+				$list_id = '93de4fe3cdcac28d483c18f908b303db';
+				$cm = new CampaignMonitor( $api_key, $client_id, $campaign_id, $list_id );
+	
+				//Optional statement to include debugging information in the result
+				$cm->debug_level = 1;
+	
+				//This is the actual call to the method, passing email address, name.
+				$result = $cm->subscriberAdd($fields["email"]["value"], $fields["name"]["value"]);
+				//print "<pre>" . print_r($result, true) . "</pre>";
+    		
+    	}
+      // Send email, and leave a thank you
+      $to = "hello@thisisbliss.com";
+      $subject = "Contact BLISS";
+      $headers = 'From: no-reply@thisisbliss.com' . "\r\n" .
+                 'Reply-To: ' . $fields['email']['value'] . "\r\n" .
+                 'X-Mailer: PHP/' . phpversion();
+      
+      $body = "From: " . $fields['name']['value'] . "\r\nE-Mail: " . $fields['email']['value'] . "\r\nMessage:\r\n" . $fields['message']['value'];
+      mail($to, $subject, $body, $headers);
+      
+      // Send the thank you
+      $subject = "Thank you for contacting BLISS";
+      $headers = 'From: no-reply@thisisbliss.com' . "\r\n" .
+                 'X-Mailer: PHP/' . phpversion();
+      
+      $body = "Hi " . $fields['name']['value'] . "\r\n\r\nThis is a confirmation that your message has been sent to the BLISS team.\r\nPlease do not reply to this email we will try our best to get back to you as soon as possible."
+              ."\r\n\r\n"."Kind regards"
+              ."\r\n"."The BLISS Team";
+      mail($fields['email']['value'], $subject, $body, $headers);
+      $sent = true;
+    }
+  }
+  
+?>
+	<?php if(!$sent) { ?>
     <form method="post" name="contactForm" id="contactForm" accept-charset="utf-8">
       	<div class="feature">
         <p>
-      	<label for="name" id="name_label">Your name</label>
-        <input id="name" name="name" type="text"/>
+      	<label for="name" id="name_label" class="<?php print ($errors['name'])?'error':'';?>"><?php print ($fields['name']['error'])?$fields['name']['error']:"Your name"; ?></label>
+        <input id="name" name="name" type="text" value="<?php print ($fields['name']['value']);?>"/>
         </p>
         <p>
-        <label for="email" id="email_label">Your email</label>
-        <input id="email" name="email" type="text"/>
+        <label for="email" id="email_label" class="<?php print ($errors['email'])?'error':'';?>"><?php print ($fields['email']['error'])?$fields['email']['error']:"Your email"; ?></label>
+        <input id="email" name="email" type="text" value="<?php print ($fields['email']['value']);?>"/>
         </p>
         <p>
         <input type="checkbox" id="optin" name="optin" checked="true"/>
@@ -15,11 +110,15 @@
         </div>
         <div class="feature">
         <p>
-        <label for="message" id="message_label">Your message</label>
-        <textarea id="message" name="message"></textarea>
+        <label for="message" id="message_label" class="<?php print ($errors['message'])?'error':'';?>"><?php print ($fields['message']['error'])?$fields['message']['error']:"Your message"; ?></label>
+        <textarea id="message" name="message"><?php print ($fields['message']['value']);?></textarea>
         </p>
         </div>
         <div class="feature">
-      	<button id="submit" class="submit button" type="submit">Send form</button>
+      	<button id="submit" name="submit" class="submit button" type="submit">Send form</button>
       	</div>
       </form>
+    <?php } else { ?>
+    	<div id="message" class="feature" style="display: block; "><h2>Thanks for your message!</h2><br><br><h3>We will be in touch soon.</h3></div>
+    <?php } ?>
+      
