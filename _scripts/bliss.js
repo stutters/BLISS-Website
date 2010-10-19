@@ -128,7 +128,8 @@
 				window.location.href.replace(baseUrl, "") == "/" ? toLoad = "/this-is-bliss/" : toLoad = window.location.href.replace(baseUrl, "");
 			}
 			
-			pageTracker._trackPageview(toLoad);
+			//pageTracker._trackPageview(toLoad);
+			_gaq.push(['_trackPageview', toLoad]);
 			
 			if(toLoad=="/contact-and-find-us/") {
 			 	isContact=true;
@@ -291,7 +292,8 @@
 					  url: "/_includes/contact-form.html",
 					  data: dataString,
 					  success: function() {
-						pageTracker._trackPageview("/contact-and-find-us/thanks");
+						//pageTracker._trackPageview("/contact-and-find-us/thanks");
+						_gaq.push(['_trackPageview', '/contact-and-find-us/thanks']);
 						$('#contactForm').html("<div id='message' class='feature'></div>");
 						$('#message').html("<h2>Thanks for your message!</h2><br/><br/>")
 						.append("<h3>We will be in touch soon.</h3>")
