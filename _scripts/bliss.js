@@ -74,6 +74,7 @@
 			}
 			else {
 				// leaving contact page
+				hideMap();
 				var $backgroundSrc = $("#background", $page).css('background-image').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 				mapCheck=false;
@@ -121,6 +122,11 @@
 	function changePage(thisHash) { 
 		
 			toLoad = thisHash.substr(1, thisHash.length);
+			
+			if(toLoad=="") {
+				// back to the original page
+				window.location.href.replace(baseUrl, "") == "/" ? toLoad = "/this-is-bliss/" : toLoad = window.location.href.replace(baseUrl, "");
+			}
 			
 			if(toLoad=="/contact-and-find-us/") {
 			 	isContact=true;
