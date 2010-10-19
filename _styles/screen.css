@@ -36,7 +36,7 @@ strong {
 	overflow:auto;
 }
 #contentContainer {
-	margin-top: 265px;
+	margin-top: 230px;
 	padding: 10px 0;
 	padding-bottom: 130px;
 }
@@ -109,7 +109,7 @@ ul#mainNavigation {
 ul#mainNavigation li {
 	float: left;
 	width: 110px;
-	margin-left: 10px;
+	margin-right: 10px;
 	display: block;
 	height: 120px;
 }
@@ -147,13 +147,13 @@ h1 {
 	line-height: 72px;
 	font-weight: 300;
 	position: absolute;
-	top: 137px;
+	top: 120px;
 	left: 50%;
 	margin-left: -475px;
 	width: 950px;
-	padding-top: 45px;
+	padding-top: 50px;
 	color: #FFF;
-	height:  83px;
+	height:  60px;
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
@@ -164,7 +164,7 @@ h2 {
 	font-size: 25px;
 	width: 700px;
 	font-weight: 500;
-	line-height: 32px;
+	line-height: 40px;
 	color: #FFF !important;
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
@@ -195,7 +195,7 @@ h4 {
 	left: 50%;
 	margin-left: 245px;
 	position: absolute;
-	top: 277px;
+	top: 240px;
 	z-index:80;
 }
 #supplementaryContainer li, #footerLinks li {
