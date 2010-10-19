@@ -17,7 +17,7 @@ a img {
 }
 body {
 	width: 100%;
-	min-height: 100%;
+	height: 100%;
 	bottom: 0;
 	font-family: "myriad-pro-1","myriad-pro-2",'Myriad Pro', Myriad, Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans', 'Gill Sans MT', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size:  16px;
@@ -36,8 +36,9 @@ strong {
 	overflow:auto;
 }
 #contentContainer {
-	margin-top: 265px;
+	margin-top: 230px;
 	padding: 10px 0;
+	padding-bottom: 130px;
 }
 #contentContainer a {
 	color: #FFF;
@@ -108,7 +109,7 @@ ul#mainNavigation {
 ul#mainNavigation li {
 	float: left;
 	width: 110px;
-	margin-left: 10px;
+	margin-right: 10px;
 	display: block;
 	height: 120px;
 }
@@ -146,13 +147,13 @@ h1 {
 	line-height: 72px;
 	font-weight: 300;
 	position: absolute;
-	top: 137px;
+	top: 120px;
 	left: 50%;
 	margin-left: -475px;
 	width: 950px;
-	padding-top: 45px;
+	padding-top: 50px;
 	color: #FFF;
-	height:  83px;
+	height:  60px;
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
@@ -163,7 +164,7 @@ h2 {
 	font-size: 25px;
 	width: 700px;
 	font-weight: 500;
-	line-height: 32px;
+	line-height: 40px;
 	color: #FFF !important;
 	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
 	/* For IE 8 */
@@ -194,7 +195,7 @@ h4 {
 	left: 50%;
 	margin-left: 245px;
 	position: absolute;
-	top: 277px;
+	top: 240px;
 	z-index:80;
 }
 #supplementaryContainer li, #footerLinks li {

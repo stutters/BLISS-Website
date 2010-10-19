@@ -1,5 +1,7 @@
-$(document).ready(function() {
+	$(document).ready(function() {
 
+	
+	var baseUrl = window.location.href.substring(0, window.location.href.indexOf('/',window.location.href.indexOf('//',0)+2));
 	var $currentNavItem = false;
 	var toLoad;
 	var bgcolour = "white";
@@ -62,7 +64,7 @@ $(document).ready(function() {
 			
 			// load background image
 			if(!isContact && !mapCheck) {
-				var $backgroundSrc = $("#background", $page).css('backgroundImage').replace(/"/g,"").replace(/url\(|\)$/ig, "");
+				var $backgroundSrc = $("#background", $page).css('background-image').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 			}
 			else if (isContact && !mapCheck) {
@@ -72,7 +74,7 @@ $(document).ready(function() {
 			}
 			else {
 				// leaving contact page
-				var $backgroundSrc = $("#background", $page).css('backgroundImage').replace(/"/g,"").replace(/url\(|\)$/ig, "");
+				var $backgroundSrc = $("#background", $page).css('background-image').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 				mapCheck=false;
 				isContact=false;
@@ -109,9 +111,9 @@ $(document).ready(function() {
 	}
 
 	function activateLinks() {
-			 
-			 window.location.hash = $(this).attr('href').substr(0, $(this).attr('href').length);
-
+		
+			 window.location.hash = $(this).attr('href').replace(baseUrl, "");
+		     
 			 return false;
 
 	}
@@ -315,5 +317,7 @@ $(document).ready(function() {
 	// INIT
 	$('#mainNavigation li a').click(activateLinks);
 	initLinks();
+	
+
 	
 });
