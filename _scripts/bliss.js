@@ -74,6 +74,7 @@ $(document).ready(function() {
 			}
 			else {
 				// leaving contact page
+				hideMap();
 				var $backgroundSrc = $("#background", $page).css('background-image').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 				mapCheck=false;
