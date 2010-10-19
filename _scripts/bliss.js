@@ -64,7 +64,7 @@ $(document).ready(function() {
 			
 			// load background image
 			if(!isContact && !mapCheck) {
-				var $backgroundSrc = $("#background", $page).css('backgroundImage').replace(/"/g,"").replace(/url\(|\)$/ig, "");
+				var $backgroundSrc = $("#background", $page).css('background-image').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 			}
 			else if (isContact && !mapCheck) {
@@ -74,7 +74,7 @@ $(document).ready(function() {
 			}
 			else {
 				// leaving contact page
-				var $backgroundSrc = $("#background", $page).css('backgroundImage').replace(/"/g,"").replace(/url\(|\)$/ig, "");
+				var $backgroundSrc = $("#background", $page).css('background-image').replace(/"/g,"").replace(/url\(|\)$/ig, "");
 				changeBGImage($backgroundSrc);
 				mapCheck=false;
 				isContact=false;
