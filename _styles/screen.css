@@ -33,7 +33,7 @@ strong {
 	top:0;
 	left:0;
 	z-index:70;
-	overflow:hidden;
+	overflow:auto;
 }
 #contentContainer {
 	margin-top: 230px;
