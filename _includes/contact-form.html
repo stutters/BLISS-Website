@@ -68,10 +68,10 @@
 				//print "<pre>" . print_r($result, true) . "</pre>";
     		
     	}
-      // Send email, and leave a thank you
+      // Send email to us, and leave a thank you
       $to = "hello@thisisbliss.com";
       $subject = "Contact BLISS";
-      $headers = 'From: no-reply@thisisbliss.com' . "\r\n" .
+      $headers = 'From: ' . $fields['email']['value'] . "\r\n" .
                  'Reply-To: ' . $fields['email']['value'] . "\r\n" .
                  'X-Mailer: PHP/' . phpversion();
       
