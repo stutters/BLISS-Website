@@ -97,6 +97,7 @@
 		navChange(); 
 		if($("#footer").attr('class')!=bgcolour) {
 			$("#footer").switchClass($("#footer").attr('class'), bgcolour, 1000, function() {$("#footer").removeClass().addClass(bgcolour);});
+			$("#colourBg").switchClass($("#colourBg").attr('class'), bgcolour, 1000, function() {$("#colourBg").removeClass().addClass(bgcolour);});
 		}
 		$('#section').animate({
 			height: 'toggle'
@@ -150,6 +151,7 @@
 	
 	function useMap() {
 		$('#container').fadeOut();
+		$('#colourBg').fadeOut();
 		$('.useMap').parent('li').children().unbind('click',useMap).click(hideMap).children('span').text('View Content');
 		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 		map.setOptions({navigationControl: true,
@@ -161,6 +163,7 @@
 	
 	function hideMap() {
 		$('#container').fadeIn();
+		$('#colourBg').fadeIn();
 		$('.useMap').parent('li').children().unbind('click',hideMap).click(useMap).children('span').text('View Map');
 		map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
 		map.setOptions({navigationControl: false,

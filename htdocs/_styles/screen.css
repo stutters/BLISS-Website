@@ -387,6 +387,20 @@ div.thumb {
 	position:absolute;
 	margin-bottom:130px;
 	overflow:none;
+	z-index:1;
+}
+
+#colourBg {
+	position:absolute;
+	height:auto;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	border:0;
+	z-index:10;
+	opacity:0.15;
+	filter:alpha(opacity=15);
 }
 
 /* SLIMBOX */
