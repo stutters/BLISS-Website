@@ -245,7 +245,7 @@
 					
 					// Creating an InfoWindow object
 					infowindow = new google.maps.InfoWindow({
-					  content: '<div style="text-align:left;"><h4 style="margin-bottom:0;">BLISS</h4><address><p style="font-style:normal;">The Landmark,<br/>21 Back Turner Street,<br/>Manchester,<br/>M4 1FR.</p></address></div>'
+					  content: '<div style="text-align:left;"><h4 style="margin-bottom:0;">BLISS</h4><address><p style="font-style:normal;">The Landmark,<br/>21 Back Turner Street,<br/>Manchester,<br/>M4 1FR.</p></address><p><a target="_blank" href="http://maps.google.co.uk/maps/place?cid=7243559190158937974&q=bliss&hl=en&sll=53.484178,-2.237502&sspn=0.006295,0.006295&ie=UTF8&ll=53.488569,-2.24664&spn=0,0&z=16">More info</a></p></div>'
 					});
 					
 					google.maps.event.addListener(marker, 'click', function() {
