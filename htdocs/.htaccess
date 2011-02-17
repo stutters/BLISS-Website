@@ -60,7 +60,6 @@ Options +FollowSymLinks
   # (http://www.example.com/... will be redirected to http://example.com/...)
   # uncomment the following:
   RewriteCond %{HTTP_HOST} !^www\.thisisbliss\.com [NC,OR]	
-  #RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ http://www.thisisbliss.com%{REQUEST_URI} [L,R=301]
 
 </IfModule>
