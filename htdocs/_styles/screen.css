@@ -154,7 +154,7 @@ h1 {
 	padding-top: 50px;
 	color: #FFF;
 	height:  60px;
-	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
@@ -166,7 +166,7 @@ h2 {
 	font-weight: 500;
 	line-height: 40px;
 	color: #FFF !important;
-	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 0px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
