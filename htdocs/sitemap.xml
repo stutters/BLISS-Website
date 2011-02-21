@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- sitemap-generator-url="http://www.auditmypc.com/free-sitemap-generator.asp" -->
-<!-- This sitemap was created using the free tool found here: http://www.auditmypc.com/free-sitemap-generator.asp -->
-<!-- Audit My PC also offers free security tools to help keep you safe during internet travels -->
 <urlset 
 		xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -10,67 +6,67 @@
 		http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
 >
 <url>
-    <loc>http://thisisbliss.com</loc>
+    <loc>http://www.thisisbliss.com</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/_styles/screen.css</loc>
+    <loc>http://www.thisisbliss.com/_styles/screen.css</loc>
     <lastmod>2010-11-08T16:06:55+00:00</lastmod>
 </url>
 <url>
-    <loc>http://thisisbliss.com/products-and-services/web-design-and-development/</loc>
+    <loc>http://www.thisisbliss.com/products-and-services/web-design-and-development/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/products-and-services/mobile-development/</loc>
+    <loc>http://www.thisisbliss.com/products-and-services/mobile-development/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/products-and-services/online-marketing/</loc>
+    <loc>http://www.thisisbliss.com/products-and-services/online-marketing/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/this-is-bliss/</loc>
+    <loc>http://www.thisisbliss.com/this-is-bliss/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/case-studies/</loc>
+    <loc>http://www.thisisbliss.com/case-studies/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/products-and-services/</loc>
+    <loc>http://www.thisisbliss.com/products-and-services/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/meet-the-team/</loc>
+    <loc>http://www.thisisbliss.com/meet-the-team/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/contact-and-find-us/</loc>
+    <loc>http://www.thisisbliss.com/contact-and-find-us/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/products-and-services/creative-services/</loc>
+    <loc>http://www.thisisbliss.com/products-and-services/creative-services/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/products-and-services/search-marketing/</loc>
+    <loc>http://www.thisisbliss.com/products-and-services/search-marketing/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/meet-the-team/jon-stutfield/</loc>
+    <loc>http://www.thisisbliss.com/meet-the-team/jon-stutfield/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/meet-the-team/nathan-beck/</loc>
+    <loc>http://www.thisisbliss.com/meet-the-team/nathan-beck/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/meet-the-team/laurie-peacock/</loc>
+    <loc>http://www.thisisbliss.com/meet-the-team/laurie-peacock/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/meet-the-team/conor-clafferty/</loc>
+    <loc>http://www.thisisbliss.com/meet-the-team/conor-clafferty/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/case-studies/royal-ahold/</loc>
+    <loc>http://www.thisisbliss.com/case-studies/royal-ahold/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/case-studies/rrg-group/</loc>
+    <loc>http://www.thisisbliss.com/case-studies/rrg-group/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/case-studies/supponor/</loc>
+    <loc>http://www.thisisbliss.com/case-studies/supponor/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/case-studies/royal-mail/</loc>
+    <loc>http://www.thisisbliss.com/case-studies/royal-mail/</loc>
 </url>
 <url>
-    <loc>http://thisisbliss.com/case-studies/vale-holiday-parks/</loc>
+    <loc>http://www.thisisbliss.com/case-studies/vale-holiday-parks/</loc>
 </url>
 </urlset>
