@@ -310,12 +310,17 @@
 					});
 	}
 	
-	function initLinks() {
+	$.fn.blissbox = function() {
+		alert('dsd');
+		$('.colourBg').animate({opacity:'1'}, 500);
+		$(this).unbind("click");
+	};
+	
+	function initLinks() {	
 		// add main nav function
 		$('a.page').click(activateLinks);
 		$("a.useMap").click(useMap);
-		$("a[rel^='lightbox']").slimbox();
-		
+		$("a[rel^='lightbox']").blissbox();
 		$('#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.5'});});
 		
 	}
