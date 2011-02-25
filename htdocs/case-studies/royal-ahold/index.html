@@ -51,7 +51,7 @@
 </div>
 <div id="supplementaryContainer">
   <ul>
-    <li> <a href="/_images/case-studies/ahold-landing.png" rel="lightbox"><img src="/_images/photo-icon-small.png"/><span>View gallery</span></a> <a style="display:none;" href="/_images/case-studies/ahold-banner.png" rel="lightbox-rrg"></a></li>
+    <li> <a href="/_images/case-studies/ahold-landing.png" class="casestudy"><img src="/_images/photo-icon-small.png"/><span>View gallery</span></a> <a style="display:none;" href="/_images/case-studies/ahold-banner.png" rel="lightbox-rrg"></a></li>
     <li><a href="http://www.ahold.com/" target="_blank"><img src="/_images/web-icon-small.png"/><span>View Ahold website</span></a></li>
   </ul>
 <script>
@@ -59,13 +59,15 @@
 	    $('#slider-stage').carousel('#previous', '#next');  
 	});
 </script>
-<div id="sliderBloc" style="display:none;position:absolute;z-index:1000;">
+<div id="sliderBloc">
 		<a id="previous">Previous</a>
-		<div style="" id="slider-stage">
-			<div style="width: 640px; left: -128px; " id="slider-list">
-				<a class="theme"><img src="/demo/jquery-infinite-carousel/theme1.png" alt="Periscope angels " height="120" width="120"><span class="nameVignette">Periscope angels </span><span class="changeTheme">changer le thème</span></a>
-				<a class="theme"><img src="/demo/jquery-infinite-carousel/theme2.jpg" alt="ice-cream mountains" height="120" width="120"><span class="nameVignette">ice-cream mountains</span><span class="changeTheme">changer le thème</span></a>
-			<a class="theme"><img src="/demo/jquery-infinite-carousel/theme1.png" alt="Periscope angels " height="120" width="120"><span class="nameVignette">Periscope angels </span><span class="changeTheme">changer le thème</span></a><a class="theme"><img src="/demo/jquery-infinite-carousel/theme2.jpg" alt="ice-cream mountains" height="120" width="120"><span class="nameVignette">ice-cream mountains</span><span class="changeTheme">changer le thème</span></a></div>
+		<div id="slider-stage">
+			<div id="slider-list">
+				<a class="theme"><img src="/_images/case-studies/ahold-banner.png" alt="Periscope angels " width="200"><span class="nameVignette">Ahold banner</span></a>
+				<a class="theme"><img src="/_images/case-studies/ahold-landing.png" alt="ice-cream mountains"><span class="nameVignette">Ahold homepage</span></a>
+				<a class="theme"><img src="/_images/case-studies/ahold-banner.png" alt="Periscope angels "><span class="nameVignette">Ahold banner</span></a>
+				<a class="theme"><img src="/_images/case-studies/ahold-landing.png" alt="ice-cream mountains"><span class="nameVignette">Ahold homepage</span></a>
+			</div>
 		</div>
 		<a id="next">Next</a>
 	</div>

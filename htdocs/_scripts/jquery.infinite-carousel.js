@@ -8,13 +8,22 @@ jQuery.fn.carousel = function(previous, next, options){
 	var sliderList = jQuery(this).children()[0];
 	
 	if (sliderList) {
-		var increment = jQuery(sliderList).children().outerWidth("true"),
+		var props = { position: "absolute", visibility: "hidden", display: "block" };
+		var itemWidth = 0;
+
+		$.swap(jQuery(sliderList).parent().parent()[0], props, function(){
+		     itemWidth = jQuery(sliderList).children().outerWidth("true");
+		});
+		
+		var increment = itemWidth,
 		elmnts = jQuery(sliderList).children(),
 		numElmts = elmnts.length,
 		sizeFirstElmnt = increment,
 		shownInViewport = Math.round(jQuery(this).width() / sizeFirstElmnt),
 		firstElementOnViewPort = 1,
 		isAnimating = false;
+		
+		alert(increment);
 		
 		for (i = 0; i < shownInViewport; i++) {
 			jQuery(sliderList).css('width',(numElmts+shownInViewport)*increment + increment + "px");
