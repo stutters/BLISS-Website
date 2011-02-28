@@ -310,10 +310,12 @@
 					});
 	}
 	
-	function initLinks() {	
+	function initLinks() {
 		// add main nav function
 		$('a.page').click(activateLinks);
 		$("a.useMap").click(useMap);
+		$("a[rel^='lightbox']").slimbox();
+		
 		$('#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.5'});});
 		
 	}
