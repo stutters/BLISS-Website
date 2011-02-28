@@ -310,25 +310,10 @@
 					});
 	}
 	
-	function blissbox() {
-		// move bg to cover site and add click close event
-		$('#colourBg').css('z-index','100').animate({opacity:'0.9'}, 500).click(closeCaseStudy);
-		// show slideshow and move controls
-		$('#supplementaryContainer').css('z-index','101');
-		$('#sliderBloc').css('z-index','101').show('slow');
-		
-		return false;
-	}
-	
-	function closeCaseStudy() {
-		
-	}
-	
 	function initLinks() {	
 		// add main nav function
 		$('a.page').click(activateLinks);
 		$("a.useMap").click(useMap);
-		$("a.casestudy").click(blissbox);
 		$('#footerLinks li').mouseenter(function() {$(this).animate({opacity:'1'});}).mouseleave(function() {$(this).animate({opacity:'0.5'});});
 		
 	}
