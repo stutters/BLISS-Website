@@ -1,0 +1,30 @@
+/* Map defaults */
+html { height: 100% }
+body { height: 100%; margin: 0px; padding: 0px }
+#map_canvas { height: 100% }
+
+/* Tweet list */
+#tweet_list {
+	float:left;
+	width: 710px;
+	overflow-y:scroll;
+	height:110px;
+}
+.tweet {
+	clear: both;
+}
+
+#container {
+	height: 150px;
+}
+#logo {
+	margin-top: 0;
+	margin-left: 0;
+	right: 208px;
+	position: absolute;
+	z-index: 999;
+}
+img.tweet_profile_pic {
+	float: left;
+	margin-right: 10px;
+}
