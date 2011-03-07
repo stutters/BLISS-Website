@@ -59,7 +59,8 @@ Options +FollowSymLinks
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
   # (http://www.example.com/... will be redirected to http://example.com/...)
   # uncomment the following:
-  RewriteCond %{HTTP_HOST} !^www\.thisisbliss\.com [NC]	
+  RewriteCond %{HTTP_HOST} !^www\.thisisbliss\.com [NC]
+  RewriteCond %{HTTP_HOST} !^dev\.thisisbliss\.com [NC]	
   RewriteRule ^ http://www.thisisbliss.com%{REQUEST_URI} [L,R=301]
 
 </IfModule>
